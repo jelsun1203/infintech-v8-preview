@@ -2883,11 +2883,11 @@ body.nav-open{overflow:hidden}
 @media(max-width:1023px){.cred-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:600px){.cred-grid{grid-template-columns:repeat(2,1fr)}}
 /* ============ 09 RECOGNITION ============ */
-.recog-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-.recog{padding:20px 18px;display:flex;flex-direction:column;gap:14px}
-.recog .rl{background:rgba(233,239,251,.93);border-radius:10px;height:64px;display:flex;align-items:center;justify-content:center;padding:10px 14px}
-.recog .rl img{max-height:42px;width:auto;object-fit:contain}
-.recog p{font-size:13.5px;color:var(--mut)}
+.recog-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.recog{padding:26px 22px;display:flex;flex-direction:column;gap:16px}
+.recog .rl{background:rgba(233,239,251,.93);border-radius:12px;height:104px;display:flex;align-items:center;justify-content:center;padding:14px 18px}
+.recog .rl img{max-height:72px;width:auto;max-width:100%;object-fit:contain}
+.recog p{font-size:15.5px;line-height:1.55;color:var(--mut)}
 .recog p .hl{color:var(--ink);font-weight:600}
 @media(max-width:1100px){.recog-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:640px){.recog-grid{grid-template-columns:1fr 1fr}}
@@ -3405,7 +3405,7 @@ section>.shell{position:relative;z-index:1}
    V8.1 — DEAD-SPACE FILL + DIRECTIVE SYSTEMS
    ============================================================ */
 /* ---- 20 / OPERATIONS GRID: robotic USA map finder ---- */
-.usmap{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:min(1240px,98%);opacity:.9;pointer-events:none}
+.usmap{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:min(1920px,100%);opacity:.9;pointer-events:none}
 .usmap svg{width:100%;height:auto;display:block}
 .usmap .udot{fill:rgba(110,152,226,.45)}
 .usmap .uline{stroke:rgba(63,217,245,.42);stroke-width:1.2;fill:none;stroke-dasharray:5 7;animation:arcFlow 3.2s linear infinite}
@@ -3423,7 +3423,33 @@ section>.shell{position:relative;z-index:1}
 .map-reticle{position:absolute;inset:0;pointer-events:none;background:
   linear-gradient(rgba(140,170,230,.05) 1px,transparent 1px),
   linear-gradient(90deg,rgba(140,170,230,.05) 1px,transparent 1px);
-  background-size:52px 52px;mask-image:radial-gradient(ellipse 75% 68% at 50% 55%,#000 20%,transparent 78%)}
+  background-size:52px 52px;mask-image:radial-gradient(ellipse 96% 84% at 50% 52%,#000 34%,transparent 98%)}
+.ops-rail{position:absolute;top:3%;bottom:3%;width:44px;pointer-events:none;opacity:.55;
+  background:repeating-linear-gradient(180deg,rgba(63,217,245,.22) 0 1px,transparent 1px 13px),
+  linear-gradient(90deg,transparent 0 21px,rgba(63,217,245,.25) 21px 22px,transparent 22px);
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 10%,#000 90%,transparent);
+  mask-image:linear-gradient(180deg,transparent,#000 10%,#000 90%,transparent)}
+.ops-rail.l{left:14px}.ops-rail.r{right:14px}
+@media(max-width:1100px){.ops-rail{display:none}}
+/* ---- GLOBAL GUTTER HUD: fills side margins on every section (wide screens) ---- */
+.gutter-fx{position:fixed;inset:0;pointer-events:none;z-index:1;display:none}
+@media(min-width:1360px){.gutter-fx{display:block}}
+.gutter-fx .g{position:absolute;top:0;bottom:0;width:calc((100vw - 1250px)/2);min-width:60px;max-width:340px;overflow:hidden}
+.gutter-fx .g.gl{left:0}.gutter-fx .g.gr{right:0}
+.gutter-fx .g-ticks{position:absolute;top:6vh;bottom:6vh;width:44px;opacity:.5;
+  background:repeating-linear-gradient(180deg,rgba(63,217,245,.20) 0 1px,transparent 1px 13px),
+  linear-gradient(90deg,transparent 0 21px,rgba(63,217,245,.22) 21px 22px,transparent 22px);
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent);
+  mask-image:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent)}
+.gl .g-ticks{left:44px}.gr .g-ticks{right:44px}
+.gutter-fx .gstream{position:absolute;top:8vh;bottom:8vh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;
+  font-family:var(--fm);font-size:10.5px;line-height:2.2;letter-spacing:.05em;color:rgba(63,217,245,.85);opacity:.16;white-space:pre;text-transform:uppercase}
+.gl .gstream{left:100px}.gr .gstream{right:100px;text-align:right}
+.gutter-fx .g-ring{position:absolute;width:150px;height:150px;border-radius:50%;border:1px dashed rgba(63,217,245,.20);animation:spin 30s linear infinite}
+.gutter-fx .g-ring::before{content:"";position:absolute;inset:22px;border-radius:50%;border:1px solid rgba(143,124,255,.18)}
+.gl .g-ring{left:48px;top:16vh}.gr .g-ring{right:48px;bottom:14vh;animation-direction:reverse}
+.gutter-fx .g-node{position:absolute;width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px rgba(63,217,245,.8);animation:pulse 3s infinite}
+@media(prefers-reduced-motion:reduce){.gutter-fx *{animation:none!important}}
 #locations .ops-grid{position:relative;z-index:1}
 /* HQ mini radar (replaces placeholder) */
 .hq .hq-map{flex:1;display:flex}
@@ -3475,11 +3501,15 @@ section>.shell{position:relative;z-index:1}
 .dt-l{left:26px;top:50%;margin-top:-22px}.dt-r{right:26px;top:50%;margin-top:-22px}
 @media(max-width:760px){.dt-l,.dt-r{display:none}}
 /* ---- 19 / BLOG: ambient terminal data streams ---- */
-.stream-fx{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-.stream{position:absolute;font-family:var(--fm);font-size:11px;line-height:2.1;letter-spacing:.06em;color:rgba(63,217,245,.8);opacity:.14;white-space:pre;text-transform:uppercase}
+.stream-fx{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 5%,#000 95%,transparent);
+  mask-image:linear-gradient(180deg,transparent,#000 5%,#000 95%,transparent)}
+.stream{position:absolute;top:20px;bottom:20px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;
+  font-family:var(--fm);font-size:11px;line-height:2.1;letter-spacing:.06em;color:rgba(63,217,245,.8);opacity:.13;white-space:pre;text-transform:uppercase}
 .stream em{font-style:normal;color:rgba(49,229,168,.9)}
 .stream.cur::after{content:"▮";animation:blink 1s steps(1) infinite;margin-left:2px}
-@media(max-width:767px){.stream:nth-child(n+3){display:none}.stream{opacity:.11}}
+#blog .shell{position:relative;z-index:1}
+@media(max-width:767px){.stream{opacity:.1}}
 /* ---- FOOTER: JARVIS hologram layer ---- */
 .ftr{overflow:hidden}
 .ftr-holo{position:absolute;inset:0;pointer-events:none;z-index:0}
@@ -3526,6 +3556,22 @@ section>.shell{position:relative;z-index:1}
 <div aria-hidden="true" class="env"></div>
 <div aria-hidden="true" class="dust"></div>
 <div aria-hidden="true" class="beam"></div>
+<div aria-hidden="true" class="gutter-fx" id="gutterFx">
+<div class="g gl">
+<span class="g-ticks"></span>
+<span class="g-ring"></span>
+<span class="gstream" id="gsL"></span>
+<span class="g-node" style="left:56px;top:34vh"></span>
+<span class="g-node" style="left:76px;top:64vh;animation-delay:1.2s"></span>
+</div>
+<div class="g gr">
+<span class="g-ticks"></span>
+<span class="g-ring"></span>
+<span class="gstream" id="gsR"></span>
+<span class="g-node" style="right:56px;top:26vh;animation-delay:.6s"></span>
+<span class="g-node" style="right:78px;top:58vh;animation-delay:1.8s"></span>
+</div>
+</div>
 <!-- AI patrol bot — original mascot, decorative -->
 <div aria-hidden="true" class="bot-x"><div class="bot-y"><div class="bot-bob"><div class="bot-face">
 <svg fill="none" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
@@ -4694,12 +4740,7 @@ We design, develop, and rank brands that dominate their market.
 </section>
 <!-- ==== 19 / INTEL FEED (Blog) ==== -->
 <section class="mod" id="blog">
-<div aria-hidden="true" class="stream-fx" id="blogStreams">
-<span class="stream" style="left:2%;top:6%"></span>
-<span class="stream" style="right:2.5%;top:14%;text-align:right"></span>
-<span class="stream" style="left:6%;bottom:8%"></span>
-<span class="stream" style="right:8%;bottom:16%;text-align:right"></span>
-</div>
+<div aria-hidden="true" class="stream-fx" id="blogStreams"></div>
 <div class="shell">
 <div class="mod-head center rv">
 <div class="tag"><span class="tix">19 /</span> Intel Feed · Latest Insights</div>
@@ -4755,6 +4796,8 @@ We design, develop, and rank brands that dominate their market.
 <g class="city" data-pin="sanfrancisco"><circle class="upin-halo" cx="44" cy="292" r="4"></circle><circle class="upin" cx="44" cy="292" r="4"></circle><text class="ulab" x="58" y="286">San Francisco</text></g>
 </svg>
 </div>
+<span class="ops-rail l"></span>
+<span class="ops-rail r"></span>
 <span class="fxi lbl edge" style="top:40%;left:2%;writing-mode:vertical-rl">OPERATIONS GRID · MAPPED</span>
 <span class="fxi lbl edge" style="top:40%;right:2%;writing-mode:vertical-rl">SCAN RADIUS · NATIONAL</span>
 </div>
@@ -5329,12 +5372,8 @@ a.addEventListener("focus",function(){pin.classList.add("lit")});
 a.addEventListener("blur",function(){pin.classList.remove("lit")});
 });
 })();
-/* ============ V8.1 — INTEL FEED DATA STREAMS (ambient typing) ============ */
+/* ============ V8.1 — DATA STREAMS (full-bleed monitor typing + gutter HUD) ============ */
 (function(){
-var host=document.getElementById("blogStreams");
-if(!host)return;
-var cols=host.querySelectorAll(".stream");
-if(!cols.length)return;
 var LINES=[
 "> crawl /blog … 200 OK",
 "> parse entities … done",
@@ -5351,29 +5390,46 @@ var LINES=[
 "> cwv audit … green",
 "> rank tracker ping … OK"
 ];
+var LH=23;
+function typeInto(el,seed){
+var MAX=Math.max(12,Math.ceil(el.offsetHeight/LH)+2);
 if(reduce){
-cols.forEach(function(c,i){
-c.textContent=LINES.slice(i*3,i*3+4).join("\n");
-});
+var out=[],k=seed;
+for(var n=0;n<MAX;n++){out.push(LINES[k%LINES.length]);k++;}
+el.textContent=out.join("\n");
 return;
 }
-cols.forEach(function(c,i){
-var li=(i*4)%LINES.length,buf=[],ch=0;
-c.classList.add("cur");
+var li=seed,buf=[],ch=0;
+el.classList.add("cur");
 (function tick(){
 var line=LINES[li%LINES.length];
 ch++;
 if(ch>=line.length){
 buf.push(line);
-if(buf.length>4)buf.shift();
-c.textContent=buf.join("\n");
+if(buf.length>MAX)buf.shift();
+el.textContent=buf.join("\n");
 ch=0;li++;
-setTimeout(tick,900+Math.random()*1400);
+setTimeout(tick,700+Math.random()*1200);
 }else{
-c.textContent=buf.concat(line.slice(0,ch)).join("\n");
-setTimeout(tick,34+Math.random()*46);
+el.textContent=buf.concat(line.slice(0,ch)).join("\n");
+setTimeout(tick,30+Math.random()*44);
 }
 })();
+}
+var host=document.getElementById("blogStreams");
+if(host){
+var lefts=window.innerWidth<768?[4,38,72]:[1.5,14,26.5,39,51.5,64,76.5,89];
+lefts.forEach(function(x,i){
+var s=document.createElement("span");
+s.className="stream";
+s.style.left=x+"%";
+host.appendChild(s);
+setTimeout(function(){typeInto(s,i*4);},i*300);
+});
+}
+["gsL","gsR"].forEach(function(id,i){
+var el=document.getElementById(id);
+if(el&&el.getBoundingClientRect().height>0)setTimeout(function(){typeInto(el,7*i+2);},i*500);
 });
 })();
 })();
