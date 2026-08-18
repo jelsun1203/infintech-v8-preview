@@ -2582,8 +2582,8 @@ h1,h2,h3,h4{font-family:var(--fd);line-height:1.15;font-weight:700}
 .center .tag::after{display:none}
 .center .sub{margin:0 auto}
 /* ---- section base ---- */
-.mod{position:relative;padding:clamp(70px,8.5vw,120px) 0;border-top:1px solid var(--line2)}
-.mod-head{margin-bottom:clamp(36px,5vw,58px)}
+.mod{position:relative;padding:clamp(56px,6.5vw,92px) 0;border-top:1px solid var(--line2)}
+.mod-head{margin-bottom:clamp(30px,4vw,48px)}
 /* ---- panels ---- */
 .panel{position:relative;background:linear-gradient(180deg,rgba(17,27,48,.62),rgba(9,14,25,.82));border:1px solid var(--line);border-radius:var(--r);backdrop-filter:blur(8px)}
 .hud::before,.hud::after{content:"";position:absolute;width:18px;height:18px;pointer-events:none}
@@ -3170,7 +3170,7 @@ section>.shell{position:relative;z-index:1}
 @keyframes railPulse{to{transform:translateY(calc(60vh + 140px))}}
 .rail-node{width:7px;height:7px;flex:none;border-radius:50%;border:1px solid rgba(63,217,245,.6);position:relative}
 .rail-node::after{content:"";position:absolute;inset:1.5px;border-radius:50%;background:var(--teal);animation:pulse 2.4s infinite}
-@media(min-width:1460px){.rail{display:flex}}
+@media(min-width:1440px){.rail{display:flex}}
 /* per-section decorative field */
 .fx{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
 .fxi{position:absolute;display:block;font-family:var(--fm);color:var(--dim)}
@@ -3184,7 +3184,7 @@ section>.shell{position:relative;z-index:1}
 .fl2{animation:float1 12.5s ease-in-out infinite reverse}
 @keyframes float1{0%,100%{transform:translateY(-8px)}50%{transform:translateY(9px)}}
 .fx .edge{display:none}
-@media(min-width:1460px){.fx .edge{display:flex}.fx span.edge.lbl,.fx svg.edge{display:block}}
+@media(min-width:1360px){.fx .edge{display:flex}.fx span.edge.lbl,.fx svg.edge{display:block}}
 @media(max-width:1023px){.fx .hide-m{display:none}.fx .big{font-size:clamp(56px,14vw,90px);opacity:.8}}
 /* svg draw-on-view + node pulse */
 .draw{stroke-dasharray:420;stroke-dashoffset:420;transition:stroke-dashoffset 2.2s ease .3s}
@@ -3356,7 +3356,7 @@ section>.shell{position:relative;z-index:1}
 /* faint chromatic fringing on the giant background type (hologram projection cue) */
 .fx .big{text-shadow:-2px 0 rgba(255,90,120,.07),2px 0 rgba(63,180,255,.08)}
 /* ============ AI PATROL BOT (original mascot, decorative) ============ */
-.bot-x{position:fixed;left:0;top:11vh;z-index:40;pointer-events:none;animation:botX 44s ease-in-out infinite}
+.bot-x{position:fixed;left:0;top:11vh;z-index:1;pointer-events:none;animation:botX 44s ease-in-out infinite}
 .bot-y{animation:botY 27s ease-in-out infinite}
 .bot-bob{animation:botBob 3.4s ease-in-out infinite}
 .bot-face{animation:botFace 44s linear infinite}
@@ -3400,6 +3400,125 @@ section>.shell{position:relative;z-index:1}
   /* patrol bot: parks bottom-right, no flight */
   .bot-x{left:auto;top:auto;right:16px;bottom:16px;animation:none!important;transform:none!important}
   .bot-y,.bot-bob,.bot-face,.bot-eye,.bot-thrust,.bot-ring,.bot-ant{animation:none!important;transform:none!important}
+}
+/* ============================================================
+   V8.1 — DEAD-SPACE FILL + DIRECTIVE SYSTEMS
+   ============================================================ */
+/* ---- 20 / OPERATIONS GRID: robotic USA map finder ---- */
+.usmap{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:min(1240px,98%);opacity:.9;pointer-events:none}
+.usmap svg{width:100%;height:auto;display:block}
+.usmap .udot{fill:rgba(110,152,226,.45)}
+.usmap .uline{stroke:rgba(63,217,245,.42);stroke-width:1.2;fill:none;stroke-dasharray:5 7;animation:arcFlow 3.2s linear infinite}
+@keyframes arcFlow{to{stroke-dashoffset:-24}}
+.usmap .upin{fill:var(--cyan);transition:r .2s}
+.usmap .upin-halo{fill:none;stroke:rgba(63,217,245,.5);animation:pinHalo 2.8s ease-out infinite}
+@keyframes pinHalo{0%{r:4;opacity:.9}100%{r:17;opacity:0}}
+.usmap .uhq{fill:var(--amber)}
+.usmap .uhq-halo{stroke:rgba(242,178,76,.6)}
+.usmap .ulab{font-family:var(--fm);font-size:11px;letter-spacing:.12em;fill:#7f96bd;text-transform:uppercase}
+.usmap g.city.lit .upin{fill:#fff}
+.usmap g.city.lit .ulab{fill:var(--cyan)}
+.usmap g.city.lit .upin-halo{stroke:rgba(63,217,245,.95);animation-duration:1.1s}
+.usmap .usweep{animation:spin 9s linear infinite;transform-origin:592px 402px}
+.map-reticle{position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(rgba(140,170,230,.05) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(140,170,230,.05) 1px,transparent 1px);
+  background-size:52px 52px;mask-image:radial-gradient(ellipse 75% 68% at 50% 55%,#000 20%,transparent 78%)}
+#locations .ops-grid{position:relative;z-index:1}
+/* HQ mini radar (replaces placeholder) */
+.hq .hq-map{flex:1;display:flex}
+.hq .hq-map .hq-radar{min-height:100%}
+.hq-radar{position:relative;width:100%;min-height:300px;overflow:hidden;border-radius:inherit;
+  background:radial-gradient(circle at 50% 46%,rgba(63,217,245,.10),rgba(8,13,24,.94) 62%),linear-gradient(160deg,#0b1322,#0e1930);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;
+  font-family:var(--fm);color:#7fdcf0;font-size:12px;letter-spacing:.14em;padding:26px}
+.hq-radar::before{content:"";position:absolute;left:50%;top:46%;width:340px;height:340px;margin:-170px 0 0 -170px;border-radius:50%;
+  background:repeating-radial-gradient(circle,transparent 0 39px,rgba(63,217,245,.16) 39px 40px);pointer-events:none}
+.hq-radar::after{content:"";position:absolute;left:50%;top:46%;width:340px;height:340px;margin:-170px 0 0 -170px;border-radius:50%;
+  background:conic-gradient(from 0deg,rgba(63,217,245,.34),transparent 26%);animation:spin 5.5s linear infinite;pointer-events:none;
+  mask:radial-gradient(circle,#000 0 52%,transparent 53%)}
+.hq-radar .rx{position:absolute;left:50%;top:46%;width:1px;height:340px;margin:-170px 0 0;background:rgba(63,217,245,.14)}
+.hq-radar .ry{position:absolute;left:50%;top:46%;width:340px;height:1px;margin:0 0 0 -170px;background:rgba(63,217,245,.14)}
+.hq-radar .hq-pin{position:relative;z-index:1;width:15px;height:15px;border-radius:50%;background:var(--amber);
+  box-shadow:0 0 14px rgba(242,178,76,.9),0 0 42px rgba(242,178,76,.4);margin-bottom:4px}
+.hq-radar .hq-pin::after{content:"";position:absolute;inset:-9px;border-radius:50%;border:1px solid rgba(242,178,76,.6);animation:hqPing 2.4s ease-out infinite}
+@keyframes hqPing{0%{transform:scale(.5);opacity:1}100%{transform:scale(1.8);opacity:0}}
+.hq-radar span{position:relative;z-index:1}
+.hq-radar .rc1{color:#cfe6f5}.hq-radar .rc2{color:#9fb2cc}
+.hq-radar .rc3{color:#41e0a8;font-size:10px;letter-spacing:.2em}
+/* ---- 21 / DEPLOY CTA: game-grade hologram ---- */
+.deploy-card{overflow:hidden;isolation:isolate}
+.deploy-card::before,.deploy-card::after{border-color:rgba(63,217,245,.9);filter:drop-shadow(0 0 6px rgba(63,217,245,.8));animation:hudBlink 4s steps(1) infinite}
+@keyframes hudBlink{0%,88%,100%{opacity:1}92%{opacity:.35}}
+.deploy-lines{position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;
+  background:repeating-linear-gradient(180deg,rgba(63,217,245,.05) 0 1px,transparent 1px 5px);
+  mix-blend-mode:screen;animation:holoLines 8s linear infinite,holoFlick 7s ease-in-out infinite}
+.deploy-cols{position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;opacity:.5;background:
+  linear-gradient(0deg,rgba(63,217,245,.13),transparent 55%) 8% 0/2px 100% no-repeat,
+  linear-gradient(0deg,rgba(143,124,255,.12),transparent 45%) 22% 0/1px 100% no-repeat,
+  linear-gradient(0deg,rgba(49,229,168,.11),transparent 60%) 78% 0/2px 100% no-repeat,
+  linear-gradient(0deg,rgba(63,217,245,.12),transparent 50%) 93% 0/1px 100% no-repeat;
+  animation:colRise 6s ease-in-out infinite alternate}
+@keyframes colRise{from{background-size:2px 60%,1px 40%,2px 50%,1px 45%}to{background-size:2px 100%,1px 85%,2px 95%,1px 80%}}
+.deploy-card .chip--cy{position:relative;animation:bootChip 5s steps(1) infinite;box-shadow:0 0 18px rgba(63,217,245,.14)}
+@keyframes bootChip{0%,90%,100%{border-color:rgba(63,217,245,.35)}94%{border-color:rgba(63,217,245,.9)}}
+.deploy-card .h2{text-shadow:0 0 30px rgba(63,217,245,.22)}
+.deploy-card .btn-c{position:relative;z-index:1}
+.deploy-card .btn-c:hover{box-shadow:0 0 0 3px rgba(63,217,245,.35),0 0 32px rgba(63,217,245,.7),0 12px 40px rgba(63,196,245,.5);animation:charged .7s ease-in-out infinite alternate}
+@keyframes charged{from{filter:brightness(1)}to{filter:brightness(1.22)}}
+.deploy-tgt{position:absolute;width:44px;height:44px;pointer-events:none;opacity:.85}
+.deploy-tgt::before,.deploy-tgt::after{content:"";position:absolute;background:rgba(63,217,245,.65)}
+.deploy-tgt::before{left:50%;top:0;bottom:0;width:1px}
+.deploy-tgt::after{top:50%;left:0;right:0;height:1px}
+.deploy-tgt i{position:absolute;inset:8px;border:1px solid rgba(63,217,245,.5);border-radius:50%;animation:pinHalo2 3s ease-out infinite}
+@keyframes pinHalo2{0%{transform:scale(.6);opacity:1}100%{transform:scale(1.5);opacity:0}}
+.dt-l{left:26px;top:50%;margin-top:-22px}.dt-r{right:26px;top:50%;margin-top:-22px}
+@media(max-width:760px){.dt-l,.dt-r{display:none}}
+/* ---- 19 / BLOG: ambient terminal data streams ---- */
+.stream-fx{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.stream{position:absolute;font-family:var(--fm);font-size:11px;line-height:2.1;letter-spacing:.06em;color:rgba(63,217,245,.8);opacity:.14;white-space:pre;text-transform:uppercase}
+.stream em{font-style:normal;color:rgba(49,229,168,.9)}
+.stream.cur::after{content:"▮";animation:blink 1s steps(1) infinite;margin-left:2px}
+@media(max-width:767px){.stream:nth-child(n+3){display:none}.stream{opacity:.11}}
+/* ---- FOOTER: JARVIS hologram layer ---- */
+.ftr{overflow:hidden}
+.ftr-holo{position:absolute;inset:0;pointer-events:none;z-index:0}
+.ftr-holo .fh-scan{position:absolute;inset:0;background:repeating-linear-gradient(180deg,rgba(63,217,245,.035) 0 1px,transparent 1px 6px);mix-blend-mode:screen;animation:holoLines 11s linear infinite}
+.ftr-holo .fh-beam{position:absolute;left:0;right:0;top:0;height:120px;background:linear-gradient(180deg,rgba(63,217,245,.06),transparent);animation:fhBeam 9s ease-in-out infinite}
+@keyframes fhBeam{0%,100%{transform:translateY(0);opacity:.7}50%{transform:translateY(46vh);opacity:.25}}
+.ftr-holo .fh-arc{position:absolute;left:-140px;bottom:-140px;width:420px;height:420px;border-radius:50%;
+  border:1px solid rgba(63,217,245,.16);
+  background:radial-gradient(circle,rgba(63,217,245,.10) 0 18%,transparent 42%)}
+.ftr-holo .fh-arc::before{content:"";position:absolute;inset:34px;border-radius:50%;border:1px dashed rgba(63,217,245,.24);animation:spin 34s linear infinite}
+.ftr-holo .fh-arc::after{content:"";position:absolute;inset:76px;border-radius:50%;border:1px solid rgba(143,124,255,.20);animation:spin 22s linear infinite reverse}
+.ftr-holo .fh-ring{position:absolute;right:-100px;top:60px;width:300px;height:300px;border-radius:50%;border:1px dashed rgba(143,124,255,.16);animation:spin 40s linear infinite}
+.ftr-holo .fh-stream{position:absolute;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(63,217,245,.20),transparent);animation:fhDrop 7s linear infinite}
+.ftr-holo .fh-s1{left:18%}.ftr-holo .fh-s2{left:52%;animation-delay:2.3s}.ftr-holo .fh-s3{left:84%;animation-delay:4.6s}
+@keyframes fhDrop{from{transform:translateY(-60%)}to{transform:translateY(60%)}}
+.ftr-brand{position:relative}
+.ftr-brand img{filter:drop-shadow(0 0 14px rgba(63,217,245,.25));animation:holoFlick 8s ease-in-out infinite}
+.ftr-col h4,.ftr-offices h4{position:relative;text-shadow:0 0 12px rgba(63,217,245,.5);animation:h4Glow 5s ease-in-out infinite}
+.ftr-col h4::after,.ftr-offices h4::after{content:"";display:block;margin-top:8px;height:1px;width:44px;background:linear-gradient(90deg,var(--cyan),transparent);box-shadow:0 0 8px rgba(63,217,245,.6)}
+@keyframes h4Glow{0%,100%{text-shadow:0 0 10px rgba(63,217,245,.35)}50%{text-shadow:0 0 18px rgba(63,217,245,.7)}}
+.ftr-off{position:relative;overflow:hidden;background:rgba(10,16,28,.4);transition:border-color .2s}
+.ftr-off::before{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(63,217,245,.07),transparent);transform:skewX(-18deg);animation:offSheen 7s ease-in-out infinite}
+.ftr-off:nth-child(2n)::before{animation-delay:1.8s}
+.ftr-off:nth-child(3n)::before{animation-delay:3.4s}
+@keyframes offSheen{0%,55%{left:-80%}75%,100%{left:130%}}
+.ftr-off:hover{border-color:rgba(63,217,245,.45)}
+/* ---- 18 / COMMS: status micro-panel (fills column gap) ---- */
+.comms-status{margin-top:14px;padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.comms-status .csh{font-family:var(--fm);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);display:flex;align-items:center;gap:8px}
+.comms-status .csh::after{content:"";flex:1;height:1px;background:var(--line2)}
+.comms-status .csr{display:flex;justify-content:space-between;gap:12px;font-size:12.5px;color:var(--mut)}
+.comms-status .csr b{color:var(--ink);font-weight:600;font-size:12.5px;text-align:right}
+.comms-status .csr .ok{color:var(--teal);font-family:var(--fm);font-size:11px;letter-spacing:.08em}
+/* ---- new-layer reduced motion ---- */
+@media(prefers-reduced-motion:reduce){
+  .usmap .uline,.usmap .upin-halo,.usmap .usweep,.hq-radar::after,.hq-radar .hq-pin::after,
+  .deploy-lines,.deploy-cols,.deploy-tgt i,.ftr-holo *,.ftr-brand img,.ftr-col h4,.ftr-offices h4,.ftr-off::before,
+  .stream .cur::after{animation:none!important}
+  .stream{opacity:.1}
 }
 </style>
 </head>
@@ -3599,7 +3718,7 @@ Reach for <span class="sc">Google's First Page</span> — Let's Grow Your <span 
 <a href="contact.html">Contact</a>
 </nav>
 <div class="hdr-cta">
-<a class="hdr-tel" href="tel:+15045551234"><i class="bi bi-telephone-fill"></i> (504) 555-1234</a>
+<a class="hdr-tel" href="tel:+15045476565"><i class="bi bi-telephone-fill"></i> (504) 547-6565</a>
 <a class="btn btn-c btn-sm" data-consult-open="" href="#consultModal"><i class="bi bi-graph-up-arrow"></i> Free Consultation</a>
 </div>
 <button aria-label="Toggle navigation" class="nav-burger" id="navBurger" type="button"><i class="bi bi-list"></i></button>
@@ -3678,7 +3797,7 @@ Reach for <span class="sc">Google's First Page</span> — Let's Grow Your <span 
 </details>
 <a class="mlink" href="contact.html">Contact</a>
 <div class="mnav-foot">
-<a class="btn btn-o" href="tel:+15045551234"><i class="bi bi-telephone-fill"></i> (504) 555-1234</a>
+<a class="btn btn-o" href="tel:+15045476565"><i class="bi bi-telephone-fill"></i> (504) 547-6565</a>
 <a class="btn btn-c" data-consult-open="" href="#consultModal"><i class="bi bi-graph-up-arrow"></i> Free Consultation</a>
 </div>
 </div>
@@ -3851,6 +3970,14 @@ We design, develop, and rank brands that dominate their market.
 </section>
 <!-- ==== 03 / PRESS SIGNALS ==== -->
 <section class="mod" id="featured-in">
+<div aria-hidden="true" class="fx">
+<span class="fxi big" data-par=".04" style="right:-2%;top:4%">PRESS</span>
+<span class="fxi card edge fl1" style="top:24%;left:1.4%"><i class="bi bi-broadcast"></i>SIGNAL FEED · LIVE</span>
+<span class="fxi lbl edge" style="top:44%;right:2%;writing-mode:vertical-rl">MEDIA UPLINK VERIFIED</span>
+<span class="fxi node" style="top:18%;right:6%"></span>
+<span class="fxi node" style="bottom:20%;left:5%;animation-delay:1.1s"></span>
+<svg class="fxi hide-m" fill="none" style="bottom:12%;right:4%;width:130px;opacity:.45" viewBox="0 0 130 40"><polyline class="draw" points="0,20 18,20 26,6 38,34 50,12 60,26 72,20 130,20" stroke="rgba(63,217,245,.55)" stroke-width="1.5"></polyline></svg>
+</div>
 <div class="shell">
 <div class="mod-head center rv">
 <div class="tag"><span class="tix">03 /</span> Press Signals · As Featured In</div>
@@ -3996,6 +4123,14 @@ We design, develop, and rank brands that dominate their market.
 </section>
 <!-- ==== 06 / DEPLOYMENT PROTOCOL (Process) ==== -->
 <section class="mod" id="process">
+<div aria-hidden="true" class="fx">
+<span class="fxi big" data-par=".045" style="left:-2%;bottom:2%">DEPLOY</span>
+<span class="fxi card edge fl1" style="top:22%;right:1.4%"><i class="bi bi-diagram-3-fill"></i>PIPELINE · 3 STAGES</span>
+<span class="fxi card edge fl2" style="bottom:26%;left:1.4%"><i class="bi bi-rocket-takeoff-fill"></i>LAUNCH WINDOW · OPEN</span>
+<span class="fxi lbl edge" style="top:46%;left:2%;writing-mode:vertical-rl">SEQUENCE ARMED</span>
+<span class="fxi node" style="top:14%;left:6%"></span>
+<span class="fxi node" style="bottom:16%;right:6%;animation-delay:.8s"></span>
+</div>
 <div class="shell">
 <div class="mod-head center rv">
 <div class="tag"><span class="tix">06 /</span> Deployment Protocol · How We Work</div>
@@ -4142,6 +4277,13 @@ We design, develop, and rank brands that dominate their market.
 </section>
 <!-- ==== 09 / RECOGNITION INDEX (Top Reasons) ==== -->
 <section class="mod" id="reasons">
+<div aria-hidden="true" class="fx">
+<span class="fxi big" data-par=".04" style="right:-3%;bottom:3%">RANKED</span>
+<span class="fxi card edge fl2" style="top:26%;right:1.4%"><i class="bi bi-trophy-fill"></i>RECOGNITION · SYNCED</span>
+<span class="fxi lbl edge" style="top:44%;left:2%;writing-mode:vertical-rl">INDEX ONLINE</span>
+<span class="fxi node" style="top:16%;left:5%"></span>
+<span class="fxi node" style="bottom:18%;right:7%;animation-delay:1.3s"></span>
+</div>
 <div class="shell">
 <div class="mod-head rv">
 <div class="tag"><span class="tix">09 /</span> Recognition Index</div>
@@ -4193,6 +4335,13 @@ We design, develop, and rank brands that dominate their market.
 </section>
 <!-- ==== 11 / SYSTEM COMPARISON ==== -->
 <section class="mod" id="compare">
+<div aria-hidden="true" class="fx">
+<span class="fxi big" data-par=".04" style="left:-2%;top:2%">VS</span>
+<span class="fxi card edge fl1" style="top:30%;left:1.4%"><i class="bi bi-clipboard2-check-fill"></i>AUDIT MODE · ACTIVE</span>
+<span class="fxi lbl edge" style="top:48%;right:2%;writing-mode:vertical-rl">COMPARISON MATRIX</span>
+<span class="fxi node" style="top:12%;right:5%"></span>
+<span class="fxi node" style="bottom:14%;left:6%;animation-delay:1s"></span>
+</div>
 <div class="shell">
 <div class="mod-head center rv">
 <div class="tag"><span class="tix">11 /</span> System Comparison</div>
@@ -4365,6 +4514,13 @@ We design, develop, and rank brands that dominate their market.
 </section>
 <!-- ==== 15 / VERIFIED FEEDBACK (Testimonials) ==== -->
 <section class="mod" id="testimonials">
+<div aria-hidden="true" class="fx">
+<span class="fxi big" data-par=".04" style="right:-2%;top:3%">5.0 ★</span>
+<span class="fxi card edge fl1" style="top:28%;left:1.4%"><i class="bi bi-patch-check-fill"></i>FEEDBACK · VERIFIED</span>
+<span class="fxi lbl edge" style="top:46%;right:2%;writing-mode:vertical-rl">CLIENT CHANNEL OPEN</span>
+<span class="fxi node" style="top:14%;left:5%"></span>
+<span class="fxi node" style="bottom:16%;right:6%;animation-delay:1.2s"></span>
+</div>
 <div class="shell">
 <div class="mod-head center rv">
 <div class="tag"><span class="tix">15 /</span> Verified Feedback · Client Stories</div>
@@ -4436,6 +4592,14 @@ We design, develop, and rank brands that dominate their market.
 </section>
 <!-- ==== 17 / KNOWLEDGE DATABASE (FAQ) ==== -->
 <section class="mod" id="faq">
+<div aria-hidden="true" class="fx">
+<span class="fxi big" data-par=".04" style="left:-2%;top:4%">FAQ</span>
+<span class="fxi card edge fl1" style="top:24%;right:1.4%"><i class="bi bi-database-fill-check"></i>KNOWLEDGE BASE · INDEXED</span>
+<span class="fxi card edge fl2" style="bottom:28%;left:1.4%"><i class="bi bi-question-circle-fill"></i>12 ENTRIES · LOADED</span>
+<span class="fxi lbl edge" style="top:48%;left:2%;writing-mode:vertical-rl">QUERY MODE READY</span>
+<span class="fxi node" style="top:16%;right:6%"></span>
+<span class="fxi node" style="bottom:14%;left:5%;animation-delay:.9s"></span>
+</div>
 <div class="shell">
 <div class="mod-head center rv">
 <div class="tag"><span class="tix">17 /</span> Knowledge Database · Got Questions?</div>
@@ -4461,6 +4625,13 @@ We design, develop, and rank brands that dominate their market.
 </section>
 <!-- ==== 18 / COMMS ARRAY (Connect) ==== -->
 <section class="mod" id="connect">
+<div aria-hidden="true" class="fx">
+<span class="fxi big" data-par=".04" style="right:-3%;bottom:2%">CONNECT</span>
+<span class="fxi card edge fl1" style="top:22%;left:1.4%"><i class="bi bi-wifi"></i>COMMS ARRAY · OPEN</span>
+<span class="fxi lbl edge" style="top:44%;right:2%;writing-mode:vertical-rl">CHANNEL SECURE</span>
+<span class="fxi node" style="top:14%;right:5%"></span>
+<span class="fxi node" style="bottom:18%;left:6%;animation-delay:1.4s"></span>
+</div>
 <div class="shell">
 <div class="mod-head center rv">
 <div class="tag"><span class="tix">18 /</span> Comms Array · Let's Connect</div>
@@ -4493,6 +4664,13 @@ We design, develop, and rank brands that dominate their market.
 <a href="https://www.facebook.com/infintech/" rel="noopener" target="_blank"><i class="bi bi-facebook"></i><span><b>Infintech</b><span>Follow on Facebook</span></span></a>
 <a href="https://www.linkedin.com/company/infintechdesigns/" rel="noopener" target="_blank"><i class="bi bi-linkedin"></i><span><b>Infintech Designs</b><span>Follow on LinkedIn</span></span></a>
 </div>
+<div class="panel comms-status">
+<span class="csh"><i class="bi bi-activity"></i> Comms Status</span>
+<div class="csr"><span>Response time</span><b class="ok">● 24-HR REPLY</b></div>
+<div class="csr"><span>Office hours</span><b>Mon–Sat · 10 AM–12 AM</b></div>
+<div class="csr"><span>Direct line</span><b><a href="tel:+15045476565">(504) 547-6565</a></b></div>
+<div class="csr"><span>Email</span><b><a href="mailto:info@infintechdesigns.com">info@infintechdesigns.com</a></b></div>
+</div>
 </div>
 <div class="panel hud fcard rv">
 <span class="chip chip--cy"><i class="bi bi-stars"></i> Free Strategy Call · 24 hr Reply</span>
@@ -4516,6 +4694,12 @@ We design, develop, and rank brands that dominate their market.
 </section>
 <!-- ==== 19 / INTEL FEED (Blog) ==== -->
 <section class="mod" id="blog">
+<div aria-hidden="true" class="stream-fx" id="blogStreams">
+<span class="stream" style="left:2%;top:6%"></span>
+<span class="stream" style="right:2.5%;top:14%;text-align:right"></span>
+<span class="stream" style="left:6%;bottom:8%"></span>
+<span class="stream" style="right:8%;bottom:16%;text-align:right"></span>
+</div>
 <div class="shell">
 <div class="mod-head center rv">
 <div class="tag"><span class="tix">19 /</span> Intel Feed · Latest Insights</div>
@@ -4553,6 +4737,27 @@ We design, develop, and rank brands that dominate their market.
 </section>
 <!-- ==== 20 / OPERATIONS GRID (Locations) ==== -->
 <section class="mod" id="locations">
+<div aria-hidden="true" class="fx">
+<span class="map-reticle"></span>
+<div class="usmap">
+<svg fill="none" viewBox="0 0 1000 620" xmlns="http://www.w3.org/2000/svg">
+<g id="usDots"></g>
+<g id="usArcs"></g>
+<g style="mix-blend-mode:screen"><circle class="usweep" cx="592" cy="402" fill="rgba(63,217,245,.05)" r="330"></circle></g>
+<g class="city hq" data-pin="hq"><circle class="upin-halo uhq-halo" cx="592" cy="478" r="6"></circle><circle class="upin uhq" cx="592" cy="478" r="5.5"></circle><text class="ulab" x="580" y="516">HQ · New Orleans</text></g>
+<g class="city" data-pin="houston"><circle class="upin-halo" cx="502" cy="483" r="4"></circle><circle class="upin" cx="502" cy="483" r="4"></circle><text class="ulab" x="452" y="470">Houston</text></g>
+<g class="city" data-pin="dallas"><circle class="upin-halo" cx="478" cy="411" r="4"></circle><circle class="upin" cx="478" cy="411" r="4"></circle><text class="ulab" x="490" y="405">Dallas</text></g>
+<g class="city" data-pin="austin"><circle class="upin-halo" cx="462" cy="470" r="4"></circle><circle class="upin" cx="462" cy="470" r="4"></circle><text class="ulab" x="398" y="452">Austin</text></g>
+<g class="city" data-pin="sanantonio"><circle class="upin-halo" cx="449" cy="491" r="4"></circle><circle class="upin" cx="449" cy="491" r="4"></circle><text class="ulab" x="330" y="502">San Antonio</text></g>
+<g class="city" data-pin="atlanta"><circle class="upin-halo" cx="688" cy="388" r="4"></circle><circle class="upin" cx="688" cy="388" r="4"></circle><text class="ulab" x="700" y="382">Atlanta</text></g>
+<g class="city" data-pin="seattle"><circle class="upin-halo" cx="45" cy="57" r="4"></circle><circle class="upin" cx="45" cy="57" r="4"></circle><text class="ulab" x="60" y="52">Seattle</text></g>
+<g class="city" data-pin="newyork"><circle class="upin-halo" cx="864" cy="222" r="4"></circle><circle class="upin" cx="864" cy="222" r="4"></circle><text class="ulab" x="878" y="216">New York</text></g>
+<g class="city" data-pin="sanfrancisco"><circle class="upin-halo" cx="44" cy="292" r="4"></circle><circle class="upin" cx="44" cy="292" r="4"></circle><text class="ulab" x="58" y="286">San Francisco</text></g>
+</svg>
+</div>
+<span class="fxi lbl edge" style="top:40%;left:2%;writing-mode:vertical-rl">OPERATIONS GRID · MAPPED</span>
+<span class="fxi lbl edge" style="top:40%;right:2%;writing-mode:vertical-rl">SCAN RADIUS · NATIONAL</span>
+</div>
 <div class="shell">
 <div class="mod-head center rv">
 <div class="tag"><span class="tix">20 /</span> Operations Grid · Nationwide Coverage</div>
@@ -4568,7 +4773,7 @@ We design, develop, and rank brands that dominate their market.
 <div class="ops-grid">
 <div class="panel hud hq rv">
 <div class="hq-map">
-<div style="width:100%;height:100%;min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:linear-gradient(160deg,#0b1322,#0e1930);border-radius:inherit;font-family:'IBM Plex Mono',monospace;color:#7fdcf0;font-size:12px;letter-spacing:.14em;text-align:center;padding:24px"><span style="font-size:26px">&#128205;</span><span>HQ &mdash; 3436 MAGAZINE ST</span><span style="color:#9fb2cc">NEW ORLEANS, LA 70115</span><span style="color:#41e0a8">&#9679; LIVE MAP AVAILABLE ON THE STAGING SITE</span></div>
+<div class="hq-radar"><span class="rx" aria-hidden="true"></span><span class="ry" aria-hidden="true"></span><span class="hq-pin" aria-hidden="true"></span><span class="rc1">HQ &mdash; 3436 MAGAZINE ST</span><span class="rc2">NEW ORLEANS, LA 70115</span><span class="rc3">&#9679; TARGET LOCKED &middot; 29.92&deg;N &middot; 90.08&deg;W</span></div>
 <span class="hq-badge"><i class="bi bi-star-fill"></i> Headquarters</span>
 </div>
 <div class="hq-body">
@@ -4581,14 +4786,14 @@ We design, develop, and rank brands that dominate their market.
 </div>
 </div>
 <div class="cities rv">
-<a class="city" href="tel:+13464896117"><span class="cp"><i class="bi bi-geo-alt-fill"></i></span><span class="cn">Houston, TX</span><span class="cph">(346) 489-6117</span><i class="bi bi-arrow-up-right ca"></i></a>
-<a class="city" href="tel:+14697734984"><span class="cp"><i class="bi bi-geo-alt-fill"></i></span><span class="cn">Dallas, TX</span><span class="cph">(469) 773-4984</span><i class="bi bi-arrow-up-right ca"></i></a>
-<a class="city" href="tel:+15128900845"><span class="cp"><i class="bi bi-geo-alt-fill"></i></span><span class="cn">Austin, TX</span><span class="cph">(512) 890-0845</span><i class="bi bi-arrow-up-right ca"></i></a>
-<a class="city" href="tel:+12102459306"><span class="cp"><i class="bi bi-geo-alt-fill"></i></span><span class="cn">San Antonio, TX</span><span class="cph">(210) 245-9306</span><i class="bi bi-arrow-up-right ca"></i></a>
-<a class="city" href="tel:+14045906256"><span class="cp"><i class="bi bi-geo-alt-fill"></i></span><span class="cn">Atlanta, GA</span><span class="cph">(404) 590-6256</span><i class="bi bi-arrow-up-right ca"></i></a>
-<a class="city" href="tel:+14253861649"><span class="cp"><i class="bi bi-geo-alt-fill"></i></span><span class="cn">Seattle, WA</span><span class="cph">(425) 386-1649</span><i class="bi bi-arrow-up-right ca"></i></a>
-<a class="city" href="tel:+13472345963"><span class="cp"><i class="bi bi-geo-alt-fill"></i></span><span class="cn">New York, NY</span><span class="cph">(347) 234-5963</span><i class="bi bi-arrow-up-right ca"></i></a>
-<a class="city" href="tel:+16289009377"><span class="cp"><i class="bi bi-geo-alt-fill"></i></span><span class="cn">San Francisco, CA</span><span class="cph">(628) 900-9377</span><i class="bi bi-arrow-up-right ca"></i></a>
+<a class="city" data-city="houston" href="tel:+13464896117"><span class="cp"><i class="bi bi-geo-alt-fill"></i></span><span class="cn">Houston, TX</span><span class="cph">(346) 489-6117</span><i class="bi bi-arrow-up-right ca"></i></a>
+<a class="city" data-city="dallas" href="tel:+14697734984"><span class="cp"><i class="bi bi-geo-alt-fill"></i></span><span class="cn">Dallas, TX</span><span class="cph">(469) 773-4984</span><i class="bi bi-arrow-up-right ca"></i></a>
+<a class="city" data-city="austin" href="tel:+15128900845"><span class="cp"><i class="bi bi-geo-alt-fill"></i></span><span class="cn">Austin, TX</span><span class="cph">(512) 890-0845</span><i class="bi bi-arrow-up-right ca"></i></a>
+<a class="city" data-city="sanantonio" href="tel:+12102459306"><span class="cp"><i class="bi bi-geo-alt-fill"></i></span><span class="cn">San Antonio, TX</span><span class="cph">(210) 245-9306</span><i class="bi bi-arrow-up-right ca"></i></a>
+<a class="city" data-city="atlanta" href="tel:+14045906256"><span class="cp"><i class="bi bi-geo-alt-fill"></i></span><span class="cn">Atlanta, GA</span><span class="cph">(404) 590-6256</span><i class="bi bi-arrow-up-right ca"></i></a>
+<a class="city" data-city="seattle" href="tel:+14253861649"><span class="cp"><i class="bi bi-geo-alt-fill"></i></span><span class="cn">Seattle, WA</span><span class="cph">(425) 386-1649</span><i class="bi bi-arrow-up-right ca"></i></a>
+<a class="city" data-city="newyork" href="tel:+13472345963"><span class="cp"><i class="bi bi-geo-alt-fill"></i></span><span class="cn">New York, NY</span><span class="cph">(347) 234-5963</span><i class="bi bi-arrow-up-right ca"></i></a>
+<a class="city" data-city="sanfrancisco" href="tel:+16289009377"><span class="cp"><i class="bi bi-geo-alt-fill"></i></span><span class="cn">San Francisco, CA</span><span class="cph">(628) 900-9377</span><i class="bi bi-arrow-up-right ca"></i></a>
 <a class="city city-cta" href="contact.html"><b>Don't see your city?</b><span>We work with clients across all 50 states. Let's talk.</span><span class="go">Get in touch →</span></a>
 </div>
 </div>
@@ -4606,6 +4811,10 @@ We design, develop, and rank brands that dominate their market.
 <div class="shell">
 <div class="panel hud deploy-card rv">
 <span aria-hidden="true" class="deploy-dust"></span>
+<span aria-hidden="true" class="deploy-lines"></span>
+<span aria-hidden="true" class="deploy-cols"></span>
+<span aria-hidden="true" class="deploy-tgt dt-l"><i></i></span>
+<span aria-hidden="true" class="deploy-tgt dt-r"><i></i></span>
 <span class="chip chip--cy"><i class="bi bi-rocket-takeoff-fill"></i> Let's Grow Together · Ready to Deploy</span>
 <h2 class="h2">Ready to rank on <span class="mk">Page 1 of Google?</span></h2>
 <p class="sub">Tell us what you're building. We'll come back with a <strong style="color:var(--ink)">free SEO audit</strong>, a fixed-scope quote, and a <strong style="color:var(--ink)">90-day growth plan</strong> — no obligation, no pitch deck.</p>
@@ -4622,6 +4831,15 @@ We design, develop, and rank brands that dominate their market.
 </main>
 <!-- ==== FOOTER ==== -->
 <footer class="ftr">
+<div aria-hidden="true" class="ftr-holo">
+<span class="fh-scan"></span>
+<span class="fh-beam"></span>
+<span class="fh-arc"></span>
+<span class="fh-ring"></span>
+<span class="fh-stream fh-s1"></span>
+<span class="fh-stream fh-s2"></span>
+<span class="fh-stream fh-s3"></span>
+</div>
 <div class="shell">
 <div class="ftr-main">
 <div class="ftr-brand">
@@ -4987,7 +5205,7 @@ document.querySelectorAll(".cred").forEach(function(c){
 var s=document.createElement("span");s.className="cring";s.setAttribute("aria-hidden","true");c.appendChild(s);
 });
 /* HUD reticle corners: complete the bracket frame on key holo panels */
-document.querySelectorAll(".aiw,#workGrid .wk:first-child").forEach(function(p){
+document.querySelectorAll(".aiw,#workGrid .wk:first-child,.deploy-card").forEach(function(p){
 ["hud-tr","hud-bl"].forEach(function(cls){
 var i=document.createElement("i");i.className="hud-c "+cls;i.setAttribute("aria-hidden","true");p.appendChild(i);
 });
@@ -5062,6 +5280,102 @@ if(c.y>MH+12){c.y=-6;c.w=MWORDS[(Math.random()*MWORDS.length)|0];c.v=.55+Math.ra
 mctx.globalAlpha=1;
 })(0);
 }
+/* ============ V8.1 — OPERATIONS MAP (dot-matrix USA + HQ arcs) ============ */
+(function(){
+var dotsG=document.getElementById("usDots"),arcsG=document.getElementById("usArcs");
+if(!dotsG||!arcsG)return;
+var NS="http://www.w3.org/2000/svg";
+/* stylized continental outline (projection-matched to the pin coords) */
+var poly=[[5,38],[10,191],[42,291],[76,370],[134,417],[175,413],[237,446],[314,434],[371,501],[432,537],[471,575],[468,530],[514,494],[537,482],[603,496],[627,472],[719,527],[754,592],[763,553],[739,470],[746,429],[839,353],[831,315],[864,222],[915,181],[983,124],[946,62],[907,119],[817,153],[780,160],[720,112],[686,83],[610,50],[559,76],[507,24],[34,24]];
+function inside(x,y){
+var ok=false;
+for(var i=0,j=poly.length-1;i<poly.length;j=i++){
+var xi=poly[i][0],yi=poly[i][1],xj=poly[j][0],yj=poly[j][1];
+if(((yi>y)!==(yj>y))&&(x<(xj-xi)*(y-yi)/(yj-yi)+xi))ok=!ok;
+}
+return ok;
+}
+var frag=document.createDocumentFragment();
+for(var gy=20;gy<610;gy+=17){
+for(var gx=10;gx<995;gx+=17){
+if(!inside(gx,gy))continue;
+var c=document.createElementNS(NS,"circle");
+c.setAttribute("class","udot");
+c.setAttribute("cx",gx+((gx/17)%2?4:0));c.setAttribute("cy",gy);
+c.setAttribute("r",1.7);
+frag.appendChild(c);
+}
+}
+dotsG.appendChild(frag);
+/* connection arcs radiating from HQ (New Orleans) */
+var hq=[592,478];
+var pts={houston:[502,483],dallas:[478,411],austin:[462,470],sanantonio:[449,491],atlanta:[688,388],seattle:[45,57],newyork:[864,222],sanfrancisco:[44,292]};
+Object.keys(pts).forEach(function(k,idx){
+var p=pts[k];
+var mx=(hq[0]+p[0])/2,my=Math.min(hq[1],p[1])-Math.max(46,Math.abs(hq[0]-p[0])*.22);
+var path=document.createElementNS(NS,"path");
+path.setAttribute("class","uline");
+path.setAttribute("d","M"+hq[0]+" "+hq[1]+" Q"+mx.toFixed(0)+" "+my.toFixed(0)+" "+p[0]+" "+p[1]);
+path.style.animationDelay=(idx*.35)+"s";
+arcsG.appendChild(path);
+});
+/* city list hover → light matching pin */
+document.querySelectorAll(".city[data-city]").forEach(function(a){
+var pin=document.querySelector('.usmap g[data-pin="'+a.getAttribute("data-city")+'"]');
+if(!pin)return;
+a.addEventListener("mouseenter",function(){pin.classList.add("lit")});
+a.addEventListener("mouseleave",function(){pin.classList.remove("lit")});
+a.addEventListener("focus",function(){pin.classList.add("lit")});
+a.addEventListener("blur",function(){pin.classList.remove("lit")});
+});
+})();
+/* ============ V8.1 — INTEL FEED DATA STREAMS (ambient typing) ============ */
+(function(){
+var host=document.getElementById("blogStreams");
+if(!host)return;
+var cols=host.querySelectorAll(".stream");
+if(!cols.length)return;
+var LINES=[
+"> crawl /blog … 200 OK",
+"> parse entities … done",
+"> index: ai-overviews-2026",
+"> serp delta … +3 positions",
+"> citation check: chatgpt ✓",
+"> citation check: perplexity ✓",
+"> schema validate … PASS",
+"> core-update scan … stable",
+"> intel feed sync … LIVE",
+"> keywords mapped: 1,204",
+"> internal links … optimized",
+"> geo signals … broadcasting",
+"> cwv audit … green",
+"> rank tracker ping … OK"
+];
+if(reduce){
+cols.forEach(function(c,i){
+c.textContent=LINES.slice(i*3,i*3+4).join("\n");
+});
+return;
+}
+cols.forEach(function(c,i){
+var li=(i*4)%LINES.length,buf=[],ch=0;
+c.classList.add("cur");
+(function tick(){
+var line=LINES[li%LINES.length];
+ch++;
+if(ch>=line.length){
+buf.push(line);
+if(buf.length>4)buf.shift();
+c.textContent=buf.join("\n");
+ch=0;li++;
+setTimeout(tick,900+Math.random()*1400);
+}else{
+c.textContent=buf.concat(line.slice(0,ch)).join("\n");
+setTimeout(tick,34+Math.random()*46);
+}
+})();
+});
+})();
 })();
 </script>
 </body>
