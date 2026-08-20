@@ -3773,6 +3773,27 @@ section>.shell{position:relative;z-index:1}
 .g2-panel--wide .gauge{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px 30px;margin-top:16px}
 @media(max-width:1023px){.g2-panel--wide .gauge{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.g2-panel--wide .gauge{grid-template-columns:1fr}}
+/* ---- 05 services: command-module card design (accent hairline + ghost icon + sweep) ---- */
+.svc{position:relative;overflow:hidden}
+.svc::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;z-index:2;
+  background:linear-gradient(90deg,var(--ac,#3FD9F5),transparent 72%);opacity:.6;transition:opacity .2s}
+.svc:hover::before{opacity:1}
+.svc:nth-of-type(3n+1){--ac:#3FD9F5}
+.svc:nth-of-type(3n+2){--ac:#F2B24C}
+.svc:nth-of-type(3n){--ac:#8F7CFF}
+.svc .mono i{color:var(--ac,#3FD9F5)}
+.svc-ghost{position:absolute;right:-14px;bottom:-20px;pointer-events:none;font-size:98px;line-height:1;z-index:0;
+  color:var(--ac,#3FD9F5);opacity:.08;transform:rotate(-10deg);transition:transform .35s ease,opacity .35s ease}
+.svc:hover .svc-ghost{transform:rotate(-3deg) scale(1.12);opacity:.17}
+.svc .mono,.svc h3,.svc p,.svc .go{position:relative;z-index:1}
+.svc::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;opacity:0;mix-blend-mode:screen;
+  background:linear-gradient(115deg,transparent 32%,rgba(63,217,245,.15) 47%,transparent 62%) -120% 0/240% 100% no-repeat}
+.svc:hover::after{opacity:1;animation:svcSweep .8s ease}
+@keyframes svcSweep{from{background-position:-120% 0}to{background-position:220% 0}}
+.svc:hover{box-shadow:0 14px 34px rgba(0,0,0,.45),0 0 18px rgba(63,217,245,.15)}
+.svc .go{transition:letter-spacing .2s,color .2s}
+.svc:hover .go{color:var(--ac,#3FD9F5);letter-spacing:.22em}
+@media(prefers-reduced-motion:reduce){.svc:hover::after{animation:none!important}.svc-ghost{transition:none}}
 /* ---- hero: standing Brian hologram replaces the rig instrument ---- */
 .hero-holo{position:relative;width:100%;max-width:620px;min-height:clamp(430px,40vw,700px);justify-self:center}
 .hero-holo .holo-brian{left:-6%;right:auto;width:100%;justify-content:flex-start}
@@ -5875,6 +5896,11 @@ setTimeout(function(){typeInto(s,i*4);},i*300);
 });
 }
 /* gutter streams removed — typing readout is exclusive to the blog section (#blogStreams) */
+/* service cards: ghost icon watermark cloned from each module icon */
+document.querySelectorAll(".svc .mono i").forEach(function(ic){
+var g=document.createElement("span");g.className="svc-ghost "+ic.className;g.setAttribute("aria-hidden","true");
+ic.closest(".svc").appendChild(g);
+});
 })();
 })();
 </script>
