@@ -3602,7 +3602,7 @@ section>.shell{position:relative;z-index:1}
 .gauge-bar{height:6px}
 .checks li{font-size:16px}
 /* Brian hologram — founder projection beside the ranking panel */
-.g2-right{position:relative;display:flex;align-items:flex-end;justify-content:flex-start;min-height:780px}
+.g2-right{position:relative;display:flex;align-items:center;justify-content:center;min-height:620px}
 .g2-right .g2-panel{position:relative;z-index:2;width:min(400px,62%);margin-bottom:34px}
 .holo-brian{position:absolute;right:-2%;top:0;bottom:6px;display:flex;align-items:flex-end;justify-content:flex-end;z-index:1;pointer-events:none;
   filter:drop-shadow(0 0 36px rgba(63,217,245,.22))}
@@ -3768,6 +3768,11 @@ section>.shell{position:relative;z-index:1}
 /* guarantee copy keeps the ORIGINAL rating-disc core (no portrait) */
 .rig--g2 .rig-core{overflow:visible}
 @media(max-width:1023px){.g2-rig{display:none}}
+/* ranking protocol relocated: full-width telemetry strip below the columns */
+.g2-panel--wide{margin-top:38px;grid-column:1/-1;width:100%}
+.g2-panel--wide .gauge{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px 30px;margin-top:16px}
+@media(max-width:1023px){.g2-panel--wide .gauge{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.g2-panel--wide .gauge{grid-template-columns:1fr}}
 /* ---- hero: standing Brian hologram replaces the rig instrument ---- */
 .hero-holo{position:relative;width:100%;max-width:620px;min-height:clamp(430px,40vw,700px);justify-self:center}
 .hero-holo .holo-brian{left:-6%;right:auto;width:100%;justify-content:flex-start}
@@ -4349,15 +4354,14 @@ We design, develop, and rank brands that dominate their market.
 <div class="rig-node rig-n4"><b>8</b><span>States Served</span></div>
 </div>
 </div>
-<div class="panel hud g2-panel">
+</div>
+<div class="panel hud g2-panel g2-panel--wide rv">
 <span class="chip chip--cy"><span class="dot"></span> Ranking Protocol · Live</span>
 <div class="gauge">
 <div class="gauge-row"><div class="gk"><span>Map Pack Target</span><b>TOP 3</b></div><div class="gauge-bar"><i style="--w:92%"></i></div></div>
 <div class="gauge-row"><div class="gk"><span>First Page Window</span><b>120 DAYS</b></div><div class="gauge-bar"><i style="--w:78%"></i></div></div>
 <div class="gauge-row"><div class="gk"><span>Tracking Dashboard</span><b>REAL-TIME</b></div><div class="gauge-bar"><i style="--w:100%"></i></div></div>
 <div class="gauge-row"><div class="gk"><span>Founder Experience</span><b>18+ YRS</b></div><div class="gauge-bar"><i style="--w:86%"></i></div></div>
-</div>
-</div>
 </div>
 </div>
 </div>
