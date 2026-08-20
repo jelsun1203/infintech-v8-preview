@@ -3895,6 +3895,21 @@ section>.shell{position:relative;z-index:1}
 .ember-trail i:nth-child(2){left:52%;animation-delay:.8s}
 .ember-trail i:nth-child(3){left:84%;animation-delay:1.6s}
 @media(prefers-reduced-motion:reduce){.ember-trail::after,.ember-trail i{animation:none!important}}
+/* ---- 07 AI: citation signal monitor filling the band under the stat tiles ---- */
+.ai-monitor{margin-top:14px;padding:16px 20px 14px;display:flex;flex-direction:column;gap:10px}
+.aim-head{display:flex;align-items:center;gap:9px;font-family:var(--fm);font-size:10px;letter-spacing:.2em;color:var(--amber);text-transform:uppercase;text-shadow:0 0 9px rgba(255,162,46,.5)}
+.aim-head .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px var(--teal);animation:pulse 2.2s infinite;flex:none}
+.aim-wave{width:100%;height:40px;display:block}
+.aim-line{stroke-dasharray:1400;stroke-dashoffset:1400;animation:aimDraw 4.5s linear infinite;filter:drop-shadow(0 0 6px rgba(63,217,245,.5))}
+@keyframes aimDraw{0%{stroke-dashoffset:1400}70%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
+.aim-engines{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between}
+.aim-e{font-family:var(--fm);font-size:10px;letter-spacing:.14em;color:var(--mut);text-transform:uppercase;display:inline-flex;align-items:center;gap:6px}
+.aim-e i{font-style:normal;color:var(--teal);font-size:9px;text-shadow:0 0 8px rgba(49,229,168,.9);animation:pulse 2.4s infinite}
+.aim-e:nth-child(2) i{animation-delay:.5s}
+.aim-e:nth-child(3) i{animation-delay:1s}
+.aim-e:nth-child(4) i{animation-delay:1.5s}
+.aim-e:nth-child(5) i{animation-delay:2s}
+@media(prefers-reduced-motion:reduce){.aim-line,.aim-head .dot,.aim-e i{animation:none!important;stroke-dashoffset:0}}
 /* letters: heading highlight shimmers like a light trail */
 .h2 .mk{background:linear-gradient(92deg,var(--cyan) 8%,var(--amber) 42%,var(--gold-hi) 52%,var(--amber) 62%,var(--cyan) 96%);
   background-size:230% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
@@ -4953,6 +4968,20 @@ We design, develop, and rank brands that dominate their market.
 <div class="ai-floats">
 <div class="panel ai-float"><i class="bi bi-graph-up-arrow"></i><div><b>+312%</b><span>AI citations</span></div></div>
 <div class="panel ai-float"><i class="bi bi-check-circle-fill"></i><div><b>#1</b><span>In AI Overviews</span></div></div>
+</div>
+<div class="panel ai-monitor rv" aria-hidden="true">
+<div class="aim-head"><span class="dot"></span> Citation Signal · Monitoring 5 Engines · Live</div>
+<svg class="aim-wave" viewBox="0 0 600 46" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="aimG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3FD9F5"/><stop offset=".55" stop-color="#31E5A8"/><stop offset="1" stop-color="#FFA22E"/></linearGradient></defs>
+<path class="aim-line" stroke="url(#aimG)" stroke-width="2" d="M0 30 L60 30 74 30 82 12 90 42 98 22 106 30 190 30 204 30 212 14 220 40 228 24 236 30 330 30 344 30 352 10 360 44 368 20 376 30 470 30 484 30 492 13 500 41 508 23 516 30 600 30"/>
+</svg>
+<div class="aim-engines">
+<span class="aim-e">ChatGPT <i>●</i></span>
+<span class="aim-e">AI Overviews <i>●</i></span>
+<span class="aim-e">Perplexity <i>●</i></span>
+<span class="aim-e">Gemini <i>●</i></span>
+<span class="aim-e">Claude <i>●</i></span>
+</div>
 </div>
 </div>
 </div>
