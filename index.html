@@ -3411,24 +3411,24 @@ section>.shell{position:relative;z-index:1}
 /* ============================================================
    V8.1 — DEAD-SPACE FILL + DIRECTIVE SYSTEMS
    ============================================================ */
-/* ---- 20 / OPERATIONS GRID: robotic USA map finder ---- */
-.usmap{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:min(1280px,94%);opacity:.6;pointer-events:none;
-  -webkit-mask-image:radial-gradient(74% 70% at 50% 50%,#000 52%,transparent 98%);
-  mask-image:radial-gradient(74% 70% at 50% 50%,#000 52%,transparent 98%)}
-.usmap svg{width:100%;height:auto;display:block}
-.usmap .udot{fill:rgba(110,152,226,.26)}
-.usmap .uline{stroke:rgba(63,217,245,.42);stroke-width:1.2;fill:none;stroke-dasharray:5 7;animation:arcFlow 3.2s linear infinite}
-@keyframes arcFlow{to{stroke-dashoffset:-24}}
-.usmap .upin{fill:var(--cyan);transition:r .2s}
-.usmap .upin-halo{fill:none;stroke:rgba(63,217,245,.5);animation:pinHalo 2.8s ease-out infinite}
-@keyframes pinHalo{0%{r:4;opacity:.9}100%{r:17;opacity:0}}
-.usmap .uhq{fill:var(--amber)}
-.usmap .uhq-halo{stroke:rgba(242,178,76,.6)}
-.usmap .ulab{font-family:var(--fm);font-size:11px;letter-spacing:.12em;fill:rgba(127,150,189,.55);text-transform:uppercase}
+/* ---- 20 / OPERATIONS GRID: outline USA map with pinned offices (reference style) ---- */
+.usmap{position:relative;max-width:1060px;margin:34px auto 10px;pointer-events:none}
+.usmap svg{width:100%;height:auto;display:block;overflow:visible}
+.usmap .uland{fill:rgba(19,29,48,.5);stroke:rgba(203,217,238,.42);stroke-width:1.6;stroke-linejoin:round}
+.usmap .upin{fill:var(--amber);stroke:rgba(9,14,26,.85);stroke-width:2.5;transition:fill .2s}
+.usmap .upin-halo{fill:none;stroke:rgba(242,178,76,.45);stroke-width:1.4;animation:pinHalo 2.8s ease-out infinite}
+@keyframes pinHalo{0%{r:9;opacity:.9}100%{r:26;opacity:0}}
+.usmap .uhq{fill:#E23B4E}
+.usmap .uhq-halo{stroke:rgba(226,59,78,.55)}
+.usmap .ustar{fill:#fff;font-size:15px;text-anchor:middle;font-family:var(--fd);font-weight:700}
+.usmap .ulab{font-family:var(--fm);font-size:12.5px;letter-spacing:.14em;fill:#c9d5ea;text-transform:uppercase;text-anchor:middle}
+.usmap .ulab.start{text-anchor:start}
+.usmap .ulab.end{text-anchor:end}
+.usmap .uhq-lab{fill:var(--amber)}
 .usmap g.city.lit .upin{fill:#fff}
 .usmap g.city.lit .ulab{fill:var(--cyan)}
 .usmap g.city.lit .upin-halo{stroke:rgba(63,217,245,.95);animation-duration:1.1s}
-.usmap .usweep{animation:spin 9s linear infinite;transform-origin:592px 402px}
+@media(max-width:767px){.usmap .ulab{font-size:22px}.usmap .ustar{font-size:20px}}
 .map-reticle{position:absolute;inset:0;pointer-events:none;background:
   linear-gradient(rgba(140,170,230,.05) 1px,transparent 1px),
   linear-gradient(90deg,rgba(140,170,230,.05) 1px,transparent 1px);
@@ -4784,22 +4784,6 @@ We design, develop, and rank brands that dominate their market.
 <section class="mod" id="locations">
 <div aria-hidden="true" class="fx">
 <span class="map-reticle"></span>
-<div class="usmap">
-<svg fill="none" viewBox="0 0 1000 620" xmlns="http://www.w3.org/2000/svg">
-<g id="usDots"></g>
-<g id="usArcs"></g>
-<g style="mix-blend-mode:screen"><circle class="usweep" cx="592" cy="402" fill="rgba(63,217,245,.05)" r="330"></circle></g>
-<g class="city hq" data-pin="hq"><circle class="upin-halo uhq-halo" cx="592" cy="478" r="6"></circle><circle class="upin uhq" cx="592" cy="478" r="5.5"></circle><text class="ulab" x="580" y="516">HQ · New Orleans</text></g>
-<g class="city" data-pin="houston"><circle class="upin-halo" cx="502" cy="483" r="4"></circle><circle class="upin" cx="502" cy="483" r="4"></circle><text class="ulab" x="452" y="470">Houston</text></g>
-<g class="city" data-pin="dallas"><circle class="upin-halo" cx="478" cy="411" r="4"></circle><circle class="upin" cx="478" cy="411" r="4"></circle><text class="ulab" x="490" y="405">Dallas</text></g>
-<g class="city" data-pin="austin"><circle class="upin-halo" cx="462" cy="470" r="4"></circle><circle class="upin" cx="462" cy="470" r="4"></circle><text class="ulab" x="398" y="452">Austin</text></g>
-<g class="city" data-pin="sanantonio"><circle class="upin-halo" cx="449" cy="491" r="4"></circle><circle class="upin" cx="449" cy="491" r="4"></circle><text class="ulab" x="330" y="502">San Antonio</text></g>
-<g class="city" data-pin="atlanta"><circle class="upin-halo" cx="688" cy="388" r="4"></circle><circle class="upin" cx="688" cy="388" r="4"></circle><text class="ulab" x="700" y="382">Atlanta</text></g>
-<g class="city" data-pin="seattle"><circle class="upin-halo" cx="45" cy="57" r="4"></circle><circle class="upin" cx="45" cy="57" r="4"></circle><text class="ulab" x="60" y="52">Seattle</text></g>
-<g class="city" data-pin="newyork"><circle class="upin-halo" cx="864" cy="222" r="4"></circle><circle class="upin" cx="864" cy="222" r="4"></circle><text class="ulab" x="878" y="216">New York</text></g>
-<g class="city" data-pin="sanfrancisco"><circle class="upin-halo" cx="44" cy="292" r="4"></circle><circle class="upin" cx="44" cy="292" r="4"></circle><text class="ulab" x="58" y="286">San Francisco</text></g>
-</svg>
-</div>
 <span class="ops-rail l"></span>
 <span class="ops-rail r"></span>
 <span class="fxi lbl edge" style="top:40%;left:2%;writing-mode:vertical-rl">OPERATIONS GRID · MAPPED</span>
@@ -4816,6 +4800,20 @@ We design, develop, and rank brands that dominate their market.
 <div class="ops-stat"><b>24/7</b><span>Coverage</span></div>
 <div class="ops-stat"><b>2008</b><span>Established</span></div>
 </div>
+</div>
+<div class="usmap rv" aria-hidden="true">
+<svg fill="none" viewBox="0 0 1000 620" xmlns="http://www.w3.org/2000/svg">
+<path class="uland" d="M5 38 L10 191 42 291 76 370 134 417 175 413 237 446 314 434 371 501 432 537 471 575 468 530 514 494 537 482 603 496 627 472 719 527 754 592 763 553 739 470 746 429 839 353 831 315 864 222 915 181 983 124 946 62 907 119 817 153 780 160 720 112 686 83 610 50 559 76 507 24 34 24 Z"></path>
+<g class="city" data-pin="seattle"><circle class="upin-halo" cx="45" cy="57" r="12"></circle><circle class="upin" cx="45" cy="57" r="8"></circle><text class="ulab" x="52" y="90">Seattle</text></g>
+<g class="city" data-pin="sanfrancisco"><circle class="upin-halo" cx="44" cy="292" r="12"></circle><circle class="upin" cx="44" cy="292" r="8"></circle><text class="ulab start" x="10" y="324">San Francisco</text></g>
+<g class="city" data-pin="newyork"><circle class="upin-halo" cx="864" cy="222" r="12"></circle><circle class="upin" cx="864" cy="222" r="8"></circle><text class="ulab" x="864" y="254">New York</text></g>
+<g class="city" data-pin="atlanta"><circle class="upin-halo" cx="688" cy="388" r="12"></circle><circle class="upin" cx="688" cy="388" r="8"></circle><text class="ulab" x="688" y="420">Atlanta</text></g>
+<g class="city" data-pin="dallas"><circle class="upin-halo" cx="478" cy="411" r="12"></circle><circle class="upin" cx="478" cy="411" r="8"></circle><text class="ulab" x="478" y="443">Dallas</text></g>
+<g class="city" data-pin="austin"><circle class="upin-halo" cx="462" cy="470" r="12"></circle><circle class="upin" cx="462" cy="470" r="8"></circle><text class="ulab end" x="446" y="474">Austin</text></g>
+<g class="city" data-pin="sanantonio"><circle class="upin-halo" cx="449" cy="491" r="12"></circle><circle class="upin" cx="449" cy="491" r="8"></circle><text class="ulab end" x="455" y="522">San Antonio</text></g>
+<g class="city" data-pin="houston"><circle class="upin-halo" cx="502" cy="483" r="12"></circle><circle class="upin" cx="502" cy="483" r="8"></circle><text class="ulab start" x="500" y="518">Houston</text></g>
+<g class="city hq" data-pin="hq"><circle class="upin-halo uhq-halo" cx="592" cy="478" r="18"></circle><circle class="upin uhq" cx="592" cy="478" r="13"></circle><text class="ustar" x="592" y="483">★</text><text class="ulab uhq-lab start" x="616" y="510">New Orleans — HQ</text></g>
+</svg>
 </div>
 <div class="ops-grid">
 <div class="panel hud hq rv">
@@ -5299,45 +5297,8 @@ if(c.y>MH+12){c.y=-6;c.w=MWORDS[(Math.random()*MWORDS.length)|0];c.v=.55+Math.ra
 mctx.globalAlpha=1;
 })(0);
 }
-/* ============ V8.1 — OPERATIONS MAP (dot-matrix USA + HQ arcs) ============ */
+/* ============ V8.1 — OPERATIONS MAP (outline USA, reference style — path is static SVG now) ============ */
 (function(){
-var dotsG=document.getElementById("usDots"),arcsG=document.getElementById("usArcs");
-if(!dotsG||!arcsG)return;
-var NS="http://www.w3.org/2000/svg";
-/* stylized continental outline (projection-matched to the pin coords) */
-var poly=[[5,38],[10,191],[42,291],[76,370],[134,417],[175,413],[237,446],[314,434],[371,501],[432,537],[471,575],[468,530],[514,494],[537,482],[603,496],[627,472],[719,527],[754,592],[763,553],[739,470],[746,429],[839,353],[831,315],[864,222],[915,181],[983,124],[946,62],[907,119],[817,153],[780,160],[720,112],[686,83],[610,50],[559,76],[507,24],[34,24]];
-function inside(x,y){
-var ok=false;
-for(var i=0,j=poly.length-1;i<poly.length;j=i++){
-var xi=poly[i][0],yi=poly[i][1],xj=poly[j][0],yj=poly[j][1];
-if(((yi>y)!==(yj>y))&&(x<(xj-xi)*(y-yi)/(yj-yi)+xi))ok=!ok;
-}
-return ok;
-}
-var frag=document.createDocumentFragment();
-for(var gy=20;gy<610;gy+=17){
-for(var gx=10;gx<995;gx+=17){
-if(!inside(gx,gy))continue;
-var c=document.createElementNS(NS,"circle");
-c.setAttribute("class","udot");
-c.setAttribute("cx",gx+((gx/17)%2?4:0));c.setAttribute("cy",gy);
-c.setAttribute("r",1.15);
-frag.appendChild(c);
-}
-}
-dotsG.appendChild(frag);
-/* connection arcs radiating from HQ (New Orleans) */
-var hq=[592,478];
-var pts={houston:[502,483],dallas:[478,411],austin:[462,470],sanantonio:[449,491],atlanta:[688,388],seattle:[45,57],newyork:[864,222],sanfrancisco:[44,292]};
-Object.keys(pts).forEach(function(k,idx){
-var p=pts[k];
-var mx=(hq[0]+p[0])/2,my=Math.min(hq[1],p[1])-Math.max(46,Math.abs(hq[0]-p[0])*.22);
-var path=document.createElementNS(NS,"path");
-path.setAttribute("class","uline");
-path.setAttribute("d","M"+hq[0]+" "+hq[1]+" Q"+mx.toFixed(0)+" "+my.toFixed(0)+" "+p[0]+" "+p[1]);
-path.style.animationDelay=(idx*.35)+"s";
-arcsG.appendChild(path);
-});
 /* city list hover → light matching pin */
 document.querySelectorAll(".city[data-city]").forEach(function(a){
 var pin=document.querySelector('.usmap g[data-pin="'+a.getAttribute("data-city")+'"]');
