@@ -2536,7 +2536,7 @@ url(data:font/woff2;base64,d09GRgABAAAAAq+gAAsAAAAHS1QAAQAAAAAAAAAAAAAAAAAAAAAAA
 :root{
   --bg0:#04070D; --bg1:#070C16; --bg2:#0B1220; --bg3:#101A2E;
   --line:rgba(140,170,230,.15); --line2:rgba(140,170,230,.07);
-  --cyan:#3FD9F5; --blue:#5B8CFF; --violet:#8F7CFF; --teal:#31E5A8; --amber:#F2B24C; --red:#FF6B7A;
+  --cyan:#3FD9F5; --blue:#5B8CFF; --violet:#8F7CFF; --teal:#31E5A8; --amber:#FFA22E; --red:#FF6B7A;
   --ink:#E9EFFB; --mut:#98A7C6; --dim:#5F6E8C;
   --glass:rgba(13,20,36,.72);
   --fd:'Space Grotesk',sans-serif; --fb:'Inter',sans-serif; --fm:'IBM Plex Mono',monospace;
@@ -3053,7 +3053,7 @@ body.nav-open{overflow:hidden}
 .hq{overflow:hidden;display:flex;flex-direction:column}
 .hq-map{position:relative}
 .hq-map iframe{width:100%;height:280px;border:0;display:block;filter:grayscale(.5) contrast(1.05) brightness(.92)}
-.hq-badge{position:absolute;top:12px;left:12px;font-family:var(--fm);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);background:rgba(9,14,26,.9);border:1px solid rgba(242,178,76,.4);border-radius:7px;padding:5px 11px}
+.hq-badge{position:absolute;top:12px;left:12px;font-family:var(--fm);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);background:rgba(9,14,26,.9);border:1px solid rgba(255,162,46,.4);border-radius:7px;padding:5px 11px}
 .hq-body{padding:20px 22px;display:flex;flex-direction:column;gap:9px}
 .hq-city{font-family:var(--fd);font-weight:700;font-size:19px}
 .hq-city i{color:var(--cyan);margin-right:8px}
@@ -3423,7 +3423,7 @@ section>.shell{position:relative;z-index:1}
 .usmap .upin-halo{fill:none;stroke:rgba(63,217,245,.5);animation:pinHalo 2.8s ease-out infinite}
 @keyframes pinHalo{0%{r:4;opacity:.9}100%{r:17;opacity:0}}
 .usmap .uhq{fill:var(--amber)}
-.usmap .uhq-halo{stroke:rgba(242,178,76,.6)}
+.usmap .uhq-halo{stroke:rgba(255,162,46,.6)}
 .usmap .ulab{font-family:var(--fm);font-size:11px;letter-spacing:.12em;fill:rgba(127,150,189,.55);text-transform:uppercase}
 .usmap g.city.lit .upin{fill:#fff}
 .usmap g.city.lit .ulab{fill:var(--cyan)}
@@ -3470,7 +3470,7 @@ section>.shell{position:relative;z-index:1}
 .hq-radar .hqpin{fill:var(--amber);stroke:rgba(9,14,26,.85);stroke-width:3;transition:fill .2s}
 .hq-radar .hqpin.red{fill:#E23B4E;animation:hqBlink 2.2s ease-in-out infinite}
 @keyframes hqBlink{0%,100%{opacity:1}50%{opacity:.55}}
-.hq-radar .hqhalo{fill:none;stroke:rgba(242,178,76,.5);stroke-width:1.6;animation:hqHalo 2.6s ease-out infinite}
+.hq-radar .hqhalo{fill:none;stroke:rgba(255,162,46,.5);stroke-width:1.6;animation:hqHalo 2.6s ease-out infinite}
 @keyframes hqHalo{0%{r:12;opacity:.95}100%{r:34;opacity:0}}
 .hq-radar .hqhalo.red{stroke:rgba(226,59,78,.65);animation:hqHaloR 2.2s ease-out infinite}
 @keyframes hqHaloR{0%{r:20;opacity:1}100%{r:52;opacity:0}}
@@ -3741,14 +3741,14 @@ section>.shell{position:relative;z-index:1}
   padding:16px 9px;border-radius:12px 0 0 12px;
   background:
   repeating-linear-gradient(45deg,rgba(0,0,0,.14) 0 6px,transparent 6px 12px),
-  linear-gradient(180deg,#E23B4E,#E8722B 78%,#F2B24C);
+  linear-gradient(180deg,#E23B4E,#E8722B 78%,#FFA22E);
   border:1px solid rgba(255,255,255,.22);border-right:0;
   box-shadow:-5px 5px 0 rgba(4,8,16,.85),0 0 22px rgba(226,59,78,.35);
   transition:transform .18s ease,box-shadow .18s ease}
 .side-consult::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:.5;
   background:repeating-linear-gradient(90deg,rgba(255,255,255,.1) 0 1px,transparent 1px 3px)}
 .side-consult:hover{transform:translateX(-4px);
-  box-shadow:-6px 6px 0 rgba(4,8,16,.85),0 0 30px rgba(242,178,76,.55),inset 0 0 0 1px rgba(63,217,245,.5)}
+  box-shadow:-6px 6px 0 rgba(4,8,16,.85),0 0 30px rgba(255,162,46,.55),inset 0 0 0 1px rgba(63,217,245,.5)}
 .side-consult .sc-txt{writing-mode:vertical-rl;text-orientation:mixed}
 .side-consult .sc-dot{width:9px;height:9px;border-radius:50%;background:#FFD34D;box-shadow:0 0 10px rgba(255,211,77,.9);animation:pulse 2.2s infinite;flex:none}
 .side-consult i{font-size:13px;animation:scNudge 2.6s ease-in-out infinite}
@@ -3779,7 +3779,7 @@ section>.shell{position:relative;z-index:1}
   background:linear-gradient(90deg,var(--ac,#3FD9F5),transparent 72%);opacity:.6;transition:opacity .2s}
 .svc:hover::before{opacity:1}
 .svc:nth-of-type(3n+1){--ac:#3FD9F5}
-.svc:nth-of-type(3n+2){--ac:#F2B24C}
+.svc:nth-of-type(3n+2){--ac:#FFA22E}
 .svc:nth-of-type(3n){--ac:#8F7CFF}
 .svc .mono i{color:var(--ac,#3FD9F5)}
 .svc-ghost{position:absolute;right:-14px;bottom:-20px;pointer-events:none;font-size:98px;line-height:1;z-index:0;
@@ -3807,9 +3807,9 @@ section>.shell{position:relative;z-index:1}
 .sf-node i{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:17px;
   color:var(--ac,#3FD9F5);background:rgba(63,217,245,.08);border:1px solid rgba(63,217,245,.32)}
 .sf-node:nth-of-type(1){--ac:#3FD9F5}
-.sf-node:nth-of-type(3){--ac:#F2B24C}
+.sf-node:nth-of-type(3){--ac:#FFA22E}
 .sf-node:nth-of-type(5){--ac:#8F7CFF}
-.sf-node:nth-of-type(7){--ac:#F2B24C}
+.sf-node:nth-of-type(7){--ac:#FFA22E}
 .sf-node:nth-of-type(9){--ac:#31E5A8}
 .sf-node b{font-family:var(--fd);font-size:13.5px;color:var(--ink);letter-spacing:.03em}
 .sf-node span{font-family:var(--fm);font-size:9px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase}
@@ -3829,29 +3829,60 @@ section>.shell{position:relative;z-index:1}
 /* lettering */
 .h2 .mk{background:linear-gradient(92deg,var(--cyan) 15%,var(--amber) 85%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .tag .tix{color:var(--amber)}
-.fx .big{-webkit-text-stroke-color:rgba(242,178,76,.13)}
-.fx .big{text-shadow:-2px 0 rgba(255,140,60,.08),2px 0 rgba(63,180,255,.08)}
+.fx .big{-webkit-text-stroke:1.5px rgba(255,162,46,.34);color:rgba(255,162,46,.03);
+  text-shadow:0 0 34px rgba(255,162,46,.12)}
+/* ============================================================
+   V8.23 — GOLD CIRCUIT PASS: hot gold accents + living animations
+   ============================================================ */
+:root{--gold-hi:#FFCE73}
+/* letters: heading highlight shimmers like a light trail */
+.h2 .mk{background:linear-gradient(92deg,var(--cyan) 8%,var(--amber) 42%,var(--gold-hi) 52%,var(--amber) 62%,var(--cyan) 96%);
+  background-size:230% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:mkShimmer 6s ease-in-out infinite}
+@keyframes mkShimmer{0%,100%{background-position:0% 0}50%{background-position:100% 0}}
+/* heading lines: pulsing gold rule under section headings */
+.mod-head .h2{position:relative;padding-bottom:16px}
+.mod-head .h2::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:120px;border-radius:3px;
+  background:linear-gradient(90deg,var(--amber),var(--gold-hi),transparent);
+  box-shadow:0 0 14px rgba(255,162,46,.5);animation:hlinePulse 3.4s ease-in-out infinite}
+.mod-head.center .h2::after{left:50%;transform:translateX(-50%);background:linear-gradient(90deg,transparent,var(--amber),var(--gold-hi),var(--amber),transparent)}
+@keyframes hlinePulse{0%,100%{opacity:.6}50%{opacity:1}}
+/* boxes/borders: HUD corners breathe gold, panels ember on hover */
+.hud::before,.hud::after{animation:hudGlow 4s ease-in-out infinite}
+.hud::after{animation-delay:2s}
+@keyframes hudGlow{0%,100%{filter:drop-shadow(0 0 0 rgba(255,162,46,0))}50%{filter:drop-shadow(0 0 6px rgba(255,162,46,.75))}}
+.panel:hover{box-shadow:0 10px 30px rgba(0,0,0,.4),0 0 18px rgba(255,162,46,.14)}
+/* bars glow like the reference light trails */
+.gauge-bar i,.pf-bar i{animation:barGlow 2.8s ease-in-out infinite}
+@keyframes barGlow{0%,100%{box-shadow:0 0 6px rgba(255,162,46,.35)}50%{box-shadow:0 0 16px rgba(255,162,46,.8)}}
+/* grid lines: hotter majors */
+.env::after{background-image:
+  linear-gradient(rgba(140,170,230,.045) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(140,170,230,.045) 1px,transparent 1px),
+  linear-gradient(rgba(255,162,46,.1) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,162,46,.1) 1px,transparent 1px)}
+@media(prefers-reduced-motion:reduce){.h2 .mk,.mod-head .h2::after,.hud::before,.hud::after,.gauge-bar i,.pf-bar i{animation:none!important}}
 .arch-col-h i{color:var(--amber)}
-.hh-k{color:rgba(242,178,76,.75)}
+.hh-k{color:rgba(255,162,46,.75)}
 .sf-head{color:var(--amber)}
 .adv-scan{color:var(--amber)}
 .ftr-col h4,.ftr-offices h4{color:var(--amber)}
 /* hero brandmark: warm edge joins the cyan lining */
 .hero h1 .l1{filter:
   drop-shadow(-2px 0 6px rgba(63,217,245,.5))
-  drop-shadow(2px 0 9px rgba(242,178,76,.4))
+  drop-shadow(2px 0 9px rgba(255,162,46,.4))
   drop-shadow(0 10px 34px rgba(63,140,245,.3));
   animation:h1flick 6.5s steps(1) infinite}
-.hero h1::after{background:linear-gradient(90deg,transparent,rgba(63,217,245,.9) 28%,rgba(242,178,76,.9) 72%,transparent)}
+.hero h1::after{background:linear-gradient(90deg,transparent,rgba(63,217,245,.9) 28%,rgba(255,162,46,.9) 72%,transparent)}
 /* boxes + borders */
 .hud::after{border-bottom-color:var(--amber);border-right-color:var(--amber)}
 .panel{transition:border-color .25s ease,transform .18s ease,box-shadow .25s ease}
-.panel:hover{border-color:rgba(242,178,76,.35)}
+.panel:hover{border-color:rgba(255,162,46,.35)}
 .hh-item:nth-child(even){border-left-color:var(--amber)}
 .hh-item:nth-child(even)::before{background:
   radial-gradient(circle 3.5px at 3.5px 50%,var(--amber) 96%,transparent 100%) no-repeat,
-  linear-gradient(90deg,rgba(242,178,76,.85),rgba(242,178,76,.2)) 0 50%/100% 1px no-repeat;
-  filter:drop-shadow(0 0 6px rgba(242,178,76,.55))}
+  linear-gradient(90deg,rgba(255,162,46,.85),rgba(255,162,46,.2)) 0 50%/100% 1px no-repeat;
+  filter:drop-shadow(0 0 6px rgba(255,162,46,.55))}
 .pf-corners{background:
   linear-gradient(90deg,var(--cyan),var(--cyan)) 0 0/18px 2px no-repeat,
   linear-gradient(180deg,var(--cyan),var(--cyan)) 0 0/2px 18px no-repeat,
@@ -3863,43 +3894,43 @@ section>.shell{position:relative;z-index:1}
   linear-gradient(180deg,var(--cyan),var(--cyan)) 100% 100%/2px 18px no-repeat}
 /* bars, lines, instruments */
 .gauge-bar i{background:linear-gradient(90deg,var(--cyan),var(--amber))}
-.pf-bar i{background:linear-gradient(90deg,var(--cyan),var(--amber));box-shadow:0 0 12px rgba(242,178,76,.6)}
-.hdr::after{background:linear-gradient(90deg,transparent,rgba(63,217,245,.9) 25%,rgba(242,178,76,.9) 55%,rgba(143,124,255,.8) 80%,transparent)}
+.pf-bar i{background:linear-gradient(90deg,var(--cyan),var(--amber));box-shadow:0 0 12px rgba(255,162,46,.6)}
+.hdr::after{background:linear-gradient(90deg,transparent,rgba(63,217,245,.9) 25%,rgba(255,162,46,.9) 55%,rgba(143,124,255,.8) 80%,transparent)}
 .g2-rig .rig-arc{background:conic-gradient(from 210deg,var(--amber) 0 18%,transparent 18% 100%)}
 .sf-link:nth-of-type(4)::after,.sf-link:nth-of-type(8)::after{background:linear-gradient(90deg,transparent,var(--amber),transparent)}
-.fxi.node:nth-of-type(even){background:var(--amber);box-shadow:0 0 12px rgba(242,178,76,.8)}
+.fxi.node:nth-of-type(even){background:var(--amber);box-shadow:0 0 12px rgba(255,162,46,.8)}
 .rail-line::after{background:linear-gradient(180deg,transparent,var(--amber),transparent)}
 /* buttons */
-.btn-o:hover{border-color:rgba(242,178,76,.6);color:var(--amber)}
-.btn:hover{box-shadow:0 0 24px rgba(242,178,76,.3),0 0 24px rgba(63,217,245,.25),inset 0 0 0 1px rgba(242,178,76,.45)}
+.btn-o:hover{border-color:rgba(255,162,46,.6);color:var(--amber)}
+.btn:hover{box-shadow:0 0 24px rgba(255,162,46,.3),0 0 24px rgba(63,217,245,.25),inset 0 0 0 1px rgba(255,162,46,.45)}
 /* background grids: amber MAJOR gridlines over the blue minor grid, site-wide */
 .env::after{background-image:
   linear-gradient(rgba(140,170,230,.045) 1px,transparent 1px),
   linear-gradient(90deg,rgba(140,170,230,.045) 1px,transparent 1px),
-  linear-gradient(rgba(242,178,76,.09) 1px,transparent 1px),
-  linear-gradient(90deg,rgba(242,178,76,.09) 1px,transparent 1px);
+  linear-gradient(rgba(255,162,46,.09) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,162,46,.09) 1px,transparent 1px);
   background-size:56px 56px,56px 56px,280px 280px,280px 280px;
   animation-duration:180s}
 @keyframes gridDrift{to{background-position:280px 280px,280px 280px,280px 280px,280px 280px}}
 .ftr::after{background-image:
   linear-gradient(rgba(140,170,230,.035) 1px,transparent 1px),
   linear-gradient(90deg,rgba(140,170,230,.035) 1px,transparent 1px),
-  linear-gradient(rgba(242,178,76,.08) 1px,transparent 1px),
-  linear-gradient(90deg,rgba(242,178,76,.08) 1px,transparent 1px);
+  linear-gradient(rgba(255,162,46,.08) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,162,46,.08) 1px,transparent 1px);
   background-size:44px 44px,44px 44px,220px 220px,220px 220px;
   animation-duration:160s}
 @keyframes gridDrift2{to{background-position:220px 220px,220px 220px,220px 220px,220px 220px}}
 .advgrid{background:
   linear-gradient(90deg,rgba(122,162,255,.05) 1px,transparent 1px),
   linear-gradient(0deg,rgba(122,162,255,.05) 1px,transparent 1px),
-  linear-gradient(90deg,rgba(242,178,76,.09) 1px,transparent 1px),
-  linear-gradient(0deg,rgba(242,178,76,.09) 1px,transparent 1px);
+  linear-gradient(90deg,rgba(255,162,46,.09) 1px,transparent 1px),
+  linear-gradient(0deg,rgba(255,162,46,.09) 1px,transparent 1px);
   background-size:46px 46px,46px 46px,230px 230px,230px 230px}
 .map-reticle{background:
   linear-gradient(rgba(140,170,230,.05) 1px,transparent 1px),
   linear-gradient(90deg,rgba(140,170,230,.05) 1px,transparent 1px),
-  linear-gradient(rgba(242,178,76,.085) 1px,transparent 1px),
-  linear-gradient(90deg,rgba(242,178,76,.085) 1px,transparent 1px);
+  linear-gradient(rgba(255,162,46,.085) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,162,46,.085) 1px,transparent 1px);
   background-size:52px 52px,52px 52px,260px 260px,260px 260px}
 /* ---- hero: standing Brian hologram replaces the rig instrument ---- */
 .hero-holo{position:relative;width:100%;max-width:620px;min-height:clamp(430px,40vw,700px);justify-self:center}
@@ -3968,7 +3999,7 @@ section>.shell{position:relative;z-index:1}
   background:rgba(9,14,26,.85);border:1px solid rgba(63,217,245,.4);border-radius:8px;padding:7px 11px}
 .pf-chip .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px var(--teal);animation:pulse 2.2s infinite}
 .pf-chip1{top:16px;left:16px;animation:pfFloat 5s ease-in-out infinite}
-.pf-chip2{top:52%;left:12px;color:var(--amber);border-color:rgba(242,178,76,.45);animation:pfFloat 6s ease-in-out 1.2s infinite}
+.pf-chip2{top:52%;left:12px;color:var(--amber);border-color:rgba(255,162,46,.45);animation:pfFloat 6s ease-in-out 1.2s infinite}
 @keyframes pfFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 .pf-bar{position:absolute;left:16px;right:16px;bottom:86px;z-index:2;pointer-events:none;display:flex;flex-direction:column;gap:5px}
 .pf-bar em{font-style:normal;font-family:var(--fm);font-size:9.5px;letter-spacing:.18em;color:#cfe6f5;text-transform:uppercase;text-shadow:0 1px 6px rgba(4,10,20,.95)}
@@ -4639,7 +4670,7 @@ We design, develop, and rank brands that dominate their market.
 <section class="mod" id="services">
 <div aria-hidden="true" class="fx">
 <span class="fxi big" data-par=".05" style="left:-2%;top:1%">{ WEB }</span>
-<svg class="fxi edge fl2" fill="none" style="top:24%;right:1.2%;width:130px;opacity:.6" viewBox="0 0 130 90"><rect height="88" rx="8" stroke="rgba(140,170,230,.35)" width="128" x="1" y="1"></rect><line stroke="rgba(140,170,230,.35)" x1="1" x2="129" y1="22" y2="22"></line><circle cx="14" cy="12" fill="rgba(255,107,122,.6)" r="3"></circle><circle cx="26" cy="12" fill="rgba(242,178,76,.6)" r="3"></circle><circle cx="38" cy="12" fill="rgba(49,229,168,.6)" r="3"></circle><rect fill="rgba(63,217,245,.25)" height="7" rx="3" width="60" x="12" y="34"></rect><rect fill="rgba(140,170,230,.18)" height="7" rx="3" width="90" x="12" y="48"></rect><rect fill="rgba(140,170,230,.18)" height="7" rx="3" width="44" x="12" y="62"></rect></svg>
+<svg class="fxi edge fl2" fill="none" style="top:24%;right:1.2%;width:130px;opacity:.6" viewBox="0 0 130 90"><rect height="88" rx="8" stroke="rgba(140,170,230,.35)" width="128" x="1" y="1"></rect><line stroke="rgba(140,170,230,.35)" x1="1" x2="129" y1="22" y2="22"></line><circle cx="14" cy="12" fill="rgba(255,107,122,.6)" r="3"></circle><circle cx="26" cy="12" fill="rgba(255,162,46,.6)" r="3"></circle><circle cx="38" cy="12" fill="rgba(49,229,168,.6)" r="3"></circle><rect fill="rgba(63,217,245,.25)" height="7" rx="3" width="60" x="12" y="34"></rect><rect fill="rgba(140,170,230,.18)" height="7" rx="3" width="90" x="12" y="48"></rect><rect fill="rgba(140,170,230,.18)" height="7" rx="3" width="44" x="12" y="62"></rect></svg>
 <span class="fxi card edge fl1" style="bottom:26%;left:1.4%"><i class="bi bi-cursor-fill"></i>UI RENDER · 60FPS</span>
 <span class="fxi lbl edge" style="bottom:44%;right:2.2%;writing-mode:vertical-rl">SYSTEMS ARCHITECTURE</span>
 <span class="fxi node" style="top:15%;right:7%"></span>
@@ -5188,7 +5219,7 @@ We design, develop, and rank brands that dominate their market.
 <!-- ==== 16 / STRATEGIC ADVANTAGE (Why Choose Us) ==== -->
 <section class="mod" id="why-us">
 <div aria-hidden="true" class="fx">
-<svg class="fxi hide-m" fill="none" style="right:2%;top:6%;width:140px;opacity:.45" viewBox="0 0 140 60"><polyline class="draw" points="0,54 24,44 46,48 70,30 96,34 122,12 140,16" stroke="rgba(242,178,76,.5)" stroke-width="1.5"></polyline><path d="M128 6 l12 10 -14 4 z" fill="rgba(242,178,76,.5)"></path></svg>
+<svg class="fxi hide-m" fill="none" style="right:2%;top:6%;width:140px;opacity:.45" viewBox="0 0 140 60"><polyline class="draw" points="0,54 24,44 46,48 70,30 96,34 122,12 140,16" stroke="rgba(255,162,46,.5)" stroke-width="1.5"></polyline><path d="M128 6 l12 10 -14 4 z" fill="rgba(255,162,46,.5)"></path></svg>
 <span class="fxi lbl edge" style="top:40%;left:2%;writing-mode:vertical-rl">GROWTH TRAJECTORY LOCKED</span>
 <span class="fxi node" style="bottom:16%;right:5%"></span>
 <span class="fxi advgrid"></span>
