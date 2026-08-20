@@ -3560,6 +3560,151 @@ section>.shell{position:relative;z-index:1}
   .stream .cur::after{animation:none!important}
   .stream{opacity:.1}
 }
+/* ============================================================
+   V8.6 — FULL-WIDTH VISUAL DENSITY PASS
+   Wider tiered shells, larger type/imagery, richer cards.
+   ============================================================ */
+:root{--shell:1460px;--shellw:1720px}
+.shell--wide{max-width:var(--shellw)}
+@media(min-width:1440px){.shell{padding-left:72px;padding-right:72px}}
+@media(min-width:1740px){.shell--wide{padding-left:88px;padding-right:88px}}
+/* gutter HUD recalibrated to the wider shell */
+@media(min-width:1360px){.gutter-fx{display:none}}
+@media(min-width:1700px){.gutter-fx{display:block}}
+.gutter-fx .g{width:calc((100vw - 1560px)/2)}
+/* ---- global type scale up ---- */
+.h2{font-size:clamp(32px,4.4vw,60px);letter-spacing:-.02em}
+.sub{max-width:780px;font-size:clamp(16.5px,1.2vw,19px)}
+.g2-title{font-size:clamp(30px,3.8vw,52px)}
+.mod{padding:clamp(64px,7vw,112px) 0}
+.fx .big{font-size:clamp(84px,11.5vw,200px)}
+/* ---- header: more substantial ---- */
+.hdr-in{height:86px;gap:30px}
+.brand img{height:54px}
+.nav>a,.nd>summary{font-size:14.5px;padding:9px 12px}
+.hdr-tel{font-size:14px}
+@media(max-width:767px){.hdr-in{height:72px}.brand img{height:44px}}
+/* ---- hero: taller, bigger brandmark, larger instrument ---- */
+.hero{padding:clamp(64px,8vw,132px) 0 clamp(72px,9vw,132px)}
+@media(min-width:1200px){
+  .hero{display:flex;align-items:center;min-height:min(86vh,860px)}
+  .hero>.shell{width:100%}
+}
+.hero h1{font-size:clamp(56px,8vw,126px)}
+.hero-tagline{font-size:clamp(17px,1.55vw,21px);max-width:600px}
+.hero-actions .btn{padding:16px 30px;font-size:16.5px}
+.hero-trust{font-size:15px;gap:12px 30px;padding-top:26px}
+.rig{max-width:640px}
+.rig-node{padding:11px 15px}
+.rig-node b{font-size:20px}
+/* ---- 01 guarantee ---- */
+.g2-ratings img{height:66px}
+.gauge-bar{height:6px}
+.checks li{font-size:16px}
+/* ---- 02 performance ---- */
+.stat .sv{font-size:clamp(34px,3.8vw,54px)}
+.stat{padding:26px 24px}
+/* ---- 03 press ---- */
+.press-row{gap:16px}
+.press-cell{min-height:118px;padding:24px 28px;transition:transform .22s ease,box-shadow .22s ease}
+.press-cell img{max-height:54px}
+.press-cell:hover{transform:translateY(-4px);box-shadow:0 16px 38px rgba(0,0,0,.4)}
+/* ---- 04 about ---- */
+.prof-visual{max-width:520px}
+.prof-body p{font-size:17px}
+.seal{padding:12px 16px;transition:transform .22s ease}
+.seal:hover{transform:translateY(-3px)}
+.seal img{height:74px}
+.prof-id b{font-size:18px}
+/* ---- 05 services ---- */
+.arch-cols{gap:26px}
+.arch-feat h3{font-size:clamp(24px,3vw,36px)}
+.svc{padding:26px;min-height:170px}
+.svc h3{font-size:21px}
+.svc p{font-size:15px}
+.svc .mono i{font-size:19px}
+/* ---- 06 process ---- */
+.pstep{padding:32px 30px}
+.pstep h3{font-size:22px}
+.pstep p{font-size:15.5px}
+/* ---- 07 AI ---- */
+.pillars .pi{width:44px;height:44px;font-size:18px}
+.pillars b{font-size:17px}
+.pillars span{font-size:14.5px}
+.engine{font-size:13px;padding:8px 15px}
+.ai-float b{font-size:24px}
+/* ---- 08 credentials ---- */
+.cred img{height:clamp(128px,11vw,168px)}
+.cring{width:196px;height:196px;margin-left:-98px}
+/* ---- 09 recognition ---- */
+.recog .rl{height:128px}
+.recog .rl img{max-height:90px}
+.recog p{font-size:16px}
+/* ---- 10 white label + industries ---- */
+.duo-block .h3{font-size:clamp(24px,2.6vw,32px)}
+.tile{padding:18px 12px;font-size:13.5px}
+.tile i{font-size:24px}
+/* ---- 11 comparison ---- */
+.vs-f i{width:44px;height:44px;font-size:18px}
+.vs-f h3{font-size:17.5px}
+.vs-cell{font-size:14px}
+/* ---- 12 missions ---- */
+.mis{padding:24px 22px}
+.mis h3{font-size:17.5px}
+.mis .mres{font-size:32px}
+/* ---- 13 client network ---- */
+.net-cell{width:198px;height:92px;transition:transform .25s ease}
+.net-cell:hover{transform:translateY(-3px)}
+.net-cell img{max-height:54px;max-width:154px}
+/* ---- 14 work archive ---- */
+.work-grid{gap:18px}
+/* ---- 15 testimonials ---- */
+.fbk{padding:30px 28px}
+.fbk p{font-size:16px}
+.fbk-av{width:48px;height:48px;font-size:15px}
+/* ---- 16 advantage ---- */
+.adv-stat b{font-size:44px}
+.apil h3{font-size:19px}
+.apil p{font-size:14.5px}
+/* ---- 17 FAQ ---- */
+.faq-wrap{max-width:940px}
+.faq summary{font-size:17px;padding:20px 24px}
+.faq-a{font-size:15px}
+/* ---- 18 comms ---- */
+.ig-head a{font-size:17px}
+.soc-mini b{font-size:14.5px}
+/* ---- 19 blog ---- */
+.bl img{transition:transform .5s ease}
+.bl:hover img{transform:scale(1.05)}
+.bl h3{font-size:17px}
+.bl-body{padding:22px 22px 24px}
+.bl p{font-size:13.5px}
+/* ---- 20 locations ---- */
+.ops-stat b{font-size:32px}
+.hq-city{font-size:21px}
+.city{padding:14px 18px}
+.city .cn{font-size:15.5px}
+/* ---- 21 deploy CTA ---- */
+.deploy-card{padding:clamp(44px,6vw,84px)}
+.deploy-card .h2{font-size:clamp(34px,4.6vw,64px)}
+/* ---- footer ---- */
+.ftr-main{grid-template-columns:1.5fr 1fr 1fr 1fr 1fr}
+.ftr-brand img{height:64px}
+.ftr-brand p{font-size:15px;max-width:320px}
+.ftr-ci{font-size:14.5px}
+.ftr-soc a{width:42px;height:42px;font-size:16px}
+.ftr-col h4,.ftr-offices h4{font-size:12px}
+.ftr-col li a{font-size:14.5px;padding:5px 0}
+.ftr-off{padding:13px 16px;font-size:13.5px}
+@media(max-width:1100px){.ftr-main{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:640px){.ftr-main{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.ftr-main{grid-template-columns:1fr}}
+/* ---- density-pass reduced motion (new hover transitions neutralized by the
+       global reduce rule; explicitly park the new lifts too) ---- */
+@media(prefers-reduced-motion:reduce){
+  .press-cell:hover,.seal:hover,.net-cell:hover{transform:none}
+  .bl:hover img{transform:none}
+}
 </style>
 </head>
 <body>
@@ -4032,7 +4177,7 @@ We design, develop, and rank brands that dominate their market.
 <span class="fxi node" style="bottom:20%;left:5%;animation-delay:1.1s"></span>
 <svg class="fxi hide-m" fill="none" style="bottom:12%;right:4%;width:130px;opacity:.45" viewBox="0 0 130 40"><polyline class="draw" points="0,20 18,20 26,6 38,34 50,12 60,26 72,20 130,20" stroke="rgba(63,217,245,.55)" stroke-width="1.5"></polyline></svg>
 </div>
-<div class="shell">
+<div class="shell shell--wide">
 <div class="mod-head center rv">
 <div class="tag"><span class="tix">03 /</span> Press Signals · As Featured In</div>
 <h2 class="h2">Recognized by <span class="mk">Leading Publications</span> &amp; Media Outlets</h2>
@@ -4049,6 +4194,13 @@ We design, develop, and rank brands that dominate their market.
 </section>
 <!-- ==== 04 / COMMAND PROFILE (About) ==== -->
 <section class="mod" id="about-infintech">
+<div aria-hidden="true" class="fx">
+<span class="fxi big" data-par=".04" style="right:-2%;top:2%">SINCE 2008</span>
+<span class="fxi card edge fl1" style="top:24%;right:1.4%"><i class="bi bi-people-fill"></i>PARTNERSHIP MODE · ON</span>
+<span class="fxi lbl edge" style="top:46%;left:2%;writing-mode:vertical-rl">COMMAND PROFILE LOADED</span>
+<span class="fxi node" style="top:14%;left:5%"></span>
+<span class="fxi node" style="bottom:18%;right:6%;animation-delay:1.1s"></span>
+</div>
 <div class="shell prof">
 <div class="prof-body rv">
 <div class="tag"><span class="tix">04 /</span> Command Profile · About Infintech Designs</div>
@@ -4304,7 +4456,7 @@ We design, develop, and rank brands that dominate their market.
 <span class="fxi node" style="top:20%;left:5%"></span>
 <span class="fxi node" style="bottom:15%;right:6%;animation-delay:1.4s"></span>
 </div>
-<div class="shell">
+<div class="shell shell--wide">
 <div class="mod-head center rv">
 <div class="tag"><span class="tix">08 /</span> Verified Credentials · Recognized · Certified · Trusted</div>
 <h2 class="h2">Awards &amp; <span class="mk">Certifications</span></h2>
@@ -4354,6 +4506,12 @@ We design, develop, and rank brands that dominate their market.
 </section>
 <!-- ==== 10 / PARTNER & SECTOR MODULES (White Label + Industries) ==== -->
 <section class="mod" id="industries">
+<div aria-hidden="true" class="fx">
+<span class="fxi big" data-par=".04" style="left:-2%;bottom:2%">SECTORS</span>
+<span class="fxi card edge fl2" style="top:26%;left:1.4%"><i class="bi bi-boxes"></i>PARTNER MODULES · LOADED</span>
+<span class="fxi lbl edge" style="top:44%;right:2%;writing-mode:vertical-rl">SECTOR GRID ONLINE</span>
+<span class="fxi node" style="top:16%;right:5%"></span>
+</div>
 <div class="shell duo">
 <div class="panel hud duo-block rv">
 <div class="tag" style="margin-bottom:6px"><span class="tix">10-A /</span> For Agencies</div>
@@ -4531,7 +4689,7 @@ We design, develop, and rank brands that dominate their market.
 <span class="fxi card edge fl1" style="bottom:30%;left:1.4%"><i class="bi bi-braces"></i>DEPLOYMENT READY</span>
 <span class="fxi lbl edge" style="bottom:46%;right:2.2%;writing-mode:vertical-rl">BUILD ARCHIVE</span>
 </div>
-<div class="shell">
+<div class="shell shell--wide">
 <div class="mod-head center rv">
 <div class="tag"><span class="tix">14 /</span> Build Archive · Our Work</div>
 <h2 class="h2">Web Design <span class="mk">Projects</span></h2>
@@ -4749,7 +4907,7 @@ We design, develop, and rank brands that dominate their market.
 <!-- ==== 19 / INTEL FEED (Blog) ==== -->
 <section class="mod" id="blog">
 <div aria-hidden="true" class="stream-fx" id="blogStreams"></div>
-<div class="shell">
+<div class="shell shell--wide">
 <div class="mod-head center rv">
 <div class="tag"><span class="tix">19 /</span> Intel Feed · Latest Insights</div>
 <h2 class="h2">From <span class="mk">Our Blog</span></h2>
