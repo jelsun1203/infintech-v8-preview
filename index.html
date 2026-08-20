@@ -3794,12 +3794,43 @@ section>.shell{position:relative;z-index:1}
 .svc .go{transition:letter-spacing .2s,color .2s}
 .svc:hover .go{color:var(--ac,#3FD9F5);letter-spacing:.22em}
 @media(prefers-reduced-motion:reduce){.svc:hover::after{animation:none!important}.svc-ghost{transition:none}}
+/* ---- services: growth pipeline strip filling the grid's empty corner ---- */
+.arch-cols>.arch-col:nth-child(1){grid-area:1/1}
+.arch-cols>.arch-col:nth-child(2){grid-area:1/2}
+.arch-cols>.arch-col:nth-child(3){grid-area:1/3}
+.svc-flow{grid-area:1/1/2/3;align-self:end;position:relative;z-index:1;display:flex;flex-direction:column;gap:14px;
+  padding:20px 24px 22px;border-radius:16px;border:1px solid var(--line);background:rgba(9,14,26,.7);backdrop-filter:blur(6px)}
+.sf-head{display:flex;align-items:center;gap:9px;font-family:var(--fm);font-size:10.5px;letter-spacing:.2em;color:var(--cyan);text-transform:uppercase}
+.sf-head .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px var(--teal);animation:pulse 2.2s infinite;flex:none}
+.sf-track{display:flex;align-items:center;gap:10px}
+.sf-node{flex:none;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:92px;text-align:center}
+.sf-node i{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:17px;
+  color:var(--ac,#3FD9F5);background:rgba(63,217,245,.08);border:1px solid rgba(63,217,245,.32)}
+.sf-node:nth-of-type(1){--ac:#3FD9F5}
+.sf-node:nth-of-type(3){--ac:#F2B24C}
+.sf-node:nth-of-type(5){--ac:#8F7CFF}
+.sf-node:nth-of-type(7){--ac:#F2B24C}
+.sf-node:nth-of-type(9){--ac:#31E5A8}
+.sf-node b{font-family:var(--fd);font-size:13.5px;color:var(--ink);letter-spacing:.03em}
+.sf-node span{font-family:var(--fm);font-size:9px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase}
+.sf-link{flex:1;height:2px;border-radius:2px;position:relative;overflow:hidden;background:rgba(63,217,245,.16)}
+.sf-link::after{content:"";position:absolute;top:0;bottom:0;left:-45%;width:45%;
+  background:linear-gradient(90deg,transparent,var(--cyan),transparent);animation:sfPulse 2.6s linear infinite}
+.sf-link:nth-of-type(4)::after{animation-delay:.65s}
+.sf-link:nth-of-type(6)::after{animation-delay:1.3s}
+.sf-link:nth-of-type(8)::after{animation-delay:1.95s}
+@keyframes sfPulse{to{left:110%}}
+@media(max-width:1023px){.arch-cols>.arch-col{grid-area:auto}.svc-flow{grid-area:auto;grid-column:1/-1}}
+@media(max-width:640px){.sf-track{flex-wrap:wrap;justify-content:center}.sf-link{display:none}}
+@media(prefers-reduced-motion:reduce){.sf-link::after,.sf-head .dot{animation:none!important}}
 /* ---- hero: standing Brian hologram replaces the rig instrument ---- */
 .hero-holo{position:relative;width:100%;max-width:620px;min-height:clamp(430px,40vw,700px);justify-self:center}
 .hero-holo .holo-brian{left:-6%;right:auto;width:100%;justify-content:flex-start}
 @media(max-width:1023px){.hero-holo .holo-brian{display:flex}.hero-holo{min-height:440px;margin-top:8px}}
 /* hero hologram: founder data readout beside Brian */
 .hh-data{position:absolute;right:-16%;top:9%;z-index:2;display:flex;flex-direction:column;gap:12px;width:min(48%,290px);pointer-events:none}
+@media(max-width:1550px){.hh-data{right:-4%}}
+@media(max-width:1200px){.hh-data{right:0}}
 /* JARVIS callout lines: each panel points to Brian with a glowing dot */
 .hh-item{position:relative}
 .hh-item::before{content:"";position:absolute;right:100%;top:50%;height:7px;margin-top:-3.5px;transform-origin:100% 50%;pointer-events:none;
@@ -4619,6 +4650,20 @@ We design, develop, and rank brands that dominate their market.
 <p>Free strategy call with Brian Hong — no obligation, no fluff.</p>
 <span class="go">Book a Free Call →</span>
 </a>
+</div>
+<div class="svc-flow rv">
+<div class="sf-head"><span class="dot"></span> Growth Pipeline · End To End</div>
+<div class="sf-track">
+<div class="sf-node"><i class="bi bi-laptop"></i><b>Build</b><span>Web Design</span></div>
+<div class="sf-link"></div>
+<div class="sf-node"><i class="bi bi-search"></i><b>Rank</b><span>SEO · Local</span></div>
+<div class="sf-link"></div>
+<div class="sf-node"><i class="bi bi-megaphone-fill"></i><b>Amplify</b><span>Ads · Social</span></div>
+<div class="sf-link"></div>
+<div class="sf-node"><i class="bi bi-star-fill"></i><b>Trust</b><span>Reviews · Links</span></div>
+<div class="sf-link"></div>
+<div class="sf-node"><i class="bi bi-funnel-fill"></i><b>Convert</b><span>Lead Generation</span></div>
+</div>
 </div>
 </div>
 </div>
