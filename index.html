@@ -3823,6 +3823,55 @@ section>.shell{position:relative;z-index:1}
 @media(max-width:1023px){.arch-cols>.arch-col{grid-area:auto}.svc-flow{grid-area:auto;grid-column:1/-1}}
 @media(max-width:640px){.sf-track{flex-wrap:wrap;justify-content:center}.sf-link{display:none}}
 @media(prefers-reduced-motion:reduce){.sf-link::after,.sf-head .dot{animation:none!important}}
+/* ============================================================
+   V8.21 — WARM SIGNAL PASS: amber woven through lettering, boxes, borders
+   ============================================================ */
+/* lettering */
+.h2 .mk{background:linear-gradient(92deg,var(--cyan) 15%,var(--amber) 85%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tag .tix{color:var(--amber)}
+.fx .big{-webkit-text-stroke-color:rgba(242,178,76,.13)}
+.fx .big{text-shadow:-2px 0 rgba(255,140,60,.08),2px 0 rgba(63,180,255,.08)}
+.arch-col-h i{color:var(--amber)}
+.hh-k{color:rgba(242,178,76,.75)}
+.sf-head{color:var(--amber)}
+.adv-scan{color:var(--amber)}
+.ftr-col h4,.ftr-offices h4{color:var(--amber)}
+/* hero brandmark: warm edge joins the cyan lining */
+.hero h1 .l1{filter:
+  drop-shadow(-2px 0 6px rgba(63,217,245,.5))
+  drop-shadow(2px 0 9px rgba(242,178,76,.4))
+  drop-shadow(0 10px 34px rgba(63,140,245,.3));
+  animation:h1flick 6.5s steps(1) infinite}
+.hero h1::after{background:linear-gradient(90deg,transparent,rgba(63,217,245,.9) 28%,rgba(242,178,76,.9) 72%,transparent)}
+/* boxes + borders */
+.hud::after{border-bottom-color:var(--amber);border-right-color:var(--amber)}
+.panel{transition:border-color .25s ease,transform .18s ease,box-shadow .25s ease}
+.panel:hover{border-color:rgba(242,178,76,.35)}
+.hh-item:nth-child(even){border-left-color:var(--amber)}
+.hh-item:nth-child(even)::before{background:
+  radial-gradient(circle 3.5px at 3.5px 50%,var(--amber) 96%,transparent 100%) no-repeat,
+  linear-gradient(90deg,rgba(242,178,76,.85),rgba(242,178,76,.2)) 0 50%/100% 1px no-repeat;
+  filter:drop-shadow(0 0 6px rgba(242,178,76,.55))}
+.pf-corners{background:
+  linear-gradient(90deg,var(--cyan),var(--cyan)) 0 0/18px 2px no-repeat,
+  linear-gradient(180deg,var(--cyan),var(--cyan)) 0 0/2px 18px no-repeat,
+  linear-gradient(90deg,var(--amber),var(--amber)) 100% 0/18px 2px no-repeat,
+  linear-gradient(180deg,var(--amber),var(--amber)) 100% 0/2px 18px no-repeat,
+  linear-gradient(90deg,var(--amber),var(--amber)) 0 100%/18px 2px no-repeat,
+  linear-gradient(180deg,var(--amber),var(--amber)) 0 100%/2px 18px no-repeat,
+  linear-gradient(90deg,var(--cyan),var(--cyan)) 100% 100%/18px 2px no-repeat,
+  linear-gradient(180deg,var(--cyan),var(--cyan)) 100% 100%/2px 18px no-repeat}
+/* bars, lines, instruments */
+.gauge-bar i{background:linear-gradient(90deg,var(--cyan),var(--amber))}
+.pf-bar i{background:linear-gradient(90deg,var(--cyan),var(--amber));box-shadow:0 0 12px rgba(242,178,76,.6)}
+.hdr::after{background:linear-gradient(90deg,transparent,rgba(63,217,245,.9) 25%,rgba(242,178,76,.9) 55%,rgba(143,124,255,.8) 80%,transparent)}
+.g2-rig .rig-arc{background:conic-gradient(from 210deg,var(--amber) 0 18%,transparent 18% 100%)}
+.sf-link:nth-of-type(4)::after,.sf-link:nth-of-type(8)::after{background:linear-gradient(90deg,transparent,var(--amber),transparent)}
+.fxi.node:nth-of-type(even){background:var(--amber);box-shadow:0 0 12px rgba(242,178,76,.8)}
+.rail-line::after{background:linear-gradient(180deg,transparent,var(--amber),transparent)}
+/* buttons */
+.btn-o:hover{border-color:rgba(242,178,76,.6);color:var(--amber)}
+.btn:hover{box-shadow:0 0 24px rgba(242,178,76,.3),0 0 24px rgba(63,217,245,.25),inset 0 0 0 1px rgba(242,178,76,.45)}
 /* ---- hero: standing Brian hologram replaces the rig instrument ---- */
 .hero-holo{position:relative;width:100%;max-width:620px;min-height:clamp(430px,40vw,700px);justify-self:center}
 .hero-holo .holo-brian{left:-6%;right:auto;width:100%;justify-content:flex-start}
