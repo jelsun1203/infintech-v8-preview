@@ -3845,6 +3845,17 @@ section>.shell{position:relative;z-index:1}
 .ftr-col h4,.ftr-offices h4{text-shadow:0 0 9px rgba(255,162,46,.5)}
 .side-consult{box-shadow:-5px 5px 0 rgba(4,8,16,.85),0 0 30px rgba(255,140,50,.55)}
 @media(prefers-reduced-motion:reduce){.fx .big{animation:none!important}}
+/* glow: all headings + navigation */
+.h2,.g2-title{text-shadow:0 0 10px rgba(180,220,255,.18),0 0 34px rgba(120,170,255,.22);animation:headGlow 5.5s ease-in-out infinite}
+@keyframes headGlow{0%,100%{text-shadow:0 0 10px rgba(180,220,255,.14),0 0 34px rgba(120,170,255,.16)}
+50%{text-shadow:0 0 12px rgba(200,230,255,.28),0 0 44px rgba(140,185,255,.3)}}
+.svc h3,.pstep h3,.apil h3,.arch-feat h3,.vs-f h3,.duo-block .h3{text-shadow:0 0 14px rgba(140,190,255,.22)}
+.nav>a,.nd>summary{text-shadow:0 0 9px rgba(63,217,245,.3)}
+.nav>a:hover,.nd>summary:hover,.nd[open]>summary{text-shadow:0 0 12px rgba(63,217,245,.75),0 0 26px rgba(255,162,46,.3)}
+.hdr-tel{text-shadow:0 0 8px rgba(63,217,245,.25)}
+.nd-g a{text-shadow:0 0 6px rgba(120,170,255,.15)}
+.mnav a{text-shadow:0 0 8px rgba(63,217,245,.25)}
+@media(prefers-reduced-motion:reduce){.h2,.g2-title{animation:none!important}}
 /* letters: heading highlight shimmers like a light trail */
 .h2 .mk{background:linear-gradient(92deg,var(--cyan) 8%,var(--amber) 42%,var(--gold-hi) 52%,var(--amber) 62%,var(--cyan) 96%);
   background-size:230% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
