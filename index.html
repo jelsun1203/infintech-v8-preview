@@ -3872,6 +3872,35 @@ section>.shell{position:relative;z-index:1}
 /* buttons */
 .btn-o:hover{border-color:rgba(242,178,76,.6);color:var(--amber)}
 .btn:hover{box-shadow:0 0 24px rgba(242,178,76,.3),0 0 24px rgba(63,217,245,.25),inset 0 0 0 1px rgba(242,178,76,.45)}
+/* background grids: amber MAJOR gridlines over the blue minor grid, site-wide */
+.env::after{background-image:
+  linear-gradient(rgba(140,170,230,.045) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(140,170,230,.045) 1px,transparent 1px),
+  linear-gradient(rgba(242,178,76,.09) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(242,178,76,.09) 1px,transparent 1px);
+  background-size:56px 56px,56px 56px,280px 280px,280px 280px;
+  animation-duration:180s}
+@keyframes gridDrift{to{background-position:280px 280px,280px 280px,280px 280px,280px 280px}}
+.ftr::after{background-image:
+  linear-gradient(rgba(140,170,230,.035) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(140,170,230,.035) 1px,transparent 1px),
+  linear-gradient(rgba(242,178,76,.08) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(242,178,76,.08) 1px,transparent 1px);
+  background-size:44px 44px,44px 44px,220px 220px,220px 220px;
+  animation-duration:160s}
+@keyframes gridDrift2{to{background-position:220px 220px,220px 220px,220px 220px,220px 220px}}
+.advgrid{background:
+  linear-gradient(90deg,rgba(122,162,255,.05) 1px,transparent 1px),
+  linear-gradient(0deg,rgba(122,162,255,.05) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(242,178,76,.09) 1px,transparent 1px),
+  linear-gradient(0deg,rgba(242,178,76,.09) 1px,transparent 1px);
+  background-size:46px 46px,46px 46px,230px 230px,230px 230px}
+.map-reticle{background:
+  linear-gradient(rgba(140,170,230,.05) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(140,170,230,.05) 1px,transparent 1px),
+  linear-gradient(rgba(242,178,76,.085) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(242,178,76,.085) 1px,transparent 1px);
+  background-size:52px 52px,52px 52px,260px 260px,260px 260px}
 /* ---- hero: standing Brian hologram replaces the rig instrument ---- */
 .hero-holo{position:relative;width:100%;max-width:620px;min-height:clamp(430px,40vw,700px);justify-self:center}
 .hero-holo .holo-brian{left:-6%;right:auto;width:100%;justify-content:flex-start}
