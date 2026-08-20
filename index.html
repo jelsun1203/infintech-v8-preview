@@ -2666,11 +2666,17 @@ body.nav-open{overflow:hidden}
 .hero-sys{display:flex;align-items:center;gap:12px;font-family:var(--fm);font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--cyan);margin-bottom:26px}
 .hero-sys::before{content:"";width:34px;height:1px;background:var(--cyan)}
 .hero-eyebrow{margin-bottom:18px}
-.hero h1{font-size:clamp(52px,7.4vw,104px);letter-spacing:-.03em;line-height:.94;font-weight:700}
-/* brand-mark colorway: pinwheel logo hues (red→amber→green→blue) bleed across INFINTECH */
-.hero h1 .l1{display:inline-block;filter:drop-shadow(0 10px 32px rgba(63,140,245,.15))}
-.hero h1.brandink .l1 .w{-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero h1 .l2{display:block;color:transparent;-webkit-text-stroke:1.5px rgba(140,180,255,.55);letter-spacing:.01em}
+.hero h1{font-size:clamp(52px,7.4vw,104px);letter-spacing:-.03em;line-height:.94;font-weight:700;position:relative}
+/* robotic white colorway: solid white glyphs with RGB-split edge lining + HUD glow */
+.hero h1 .l1{display:inline-block;color:#F3F8FF;filter:drop-shadow(0 10px 32px rgba(63,140,245,.22))}
+.hero h1 .l1 .w{color:#F3F8FF;text-shadow:1.6px 0 0 rgba(255,93,113,.38),-1.6px 0 0 rgba(63,217,245,.42),0 0 26px rgba(120,170,255,.26)}
+.hero h1 .l2{display:block;color:transparent;-webkit-text-stroke:1.5px rgba(244,249,255,.9);letter-spacing:.01em;filter:drop-shadow(0 0 14px rgba(63,217,245,.2))}
+.hero h1 .l2 .w{text-shadow:2px 0 10px rgba(255,93,113,.18),-2px 0 10px rgba(63,217,245,.2)}
+/* scanner line sweeping the brandmark — command-center read */
+.hero h1::after{content:"";position:absolute;left:-3%;right:-3%;top:-6%;height:3px;border-radius:2px;pointer-events:none;mix-blend-mode:screen;opacity:0;
+  background:linear-gradient(90deg,transparent,rgba(63,217,245,.9) 30%,rgba(143,124,255,.85) 70%,transparent);
+  box-shadow:0 0 18px rgba(63,217,245,.55);animation:h1scan 7s ease-in-out 1.8s infinite}
+@keyframes h1scan{0%,54%{top:-6%;opacity:0}58%{opacity:.9}72%{top:103%;opacity:.7}76%,100%{top:103%;opacity:0}}
 /* pinwheel tile accent — the four logo colors, verbatim, closing the DESIGNS line */
 .hero h1 .l2::after{content:"";display:inline-block;width:.58em;height:.12em;margin-left:.16em;vertical-align:.06em;border-radius:2px;opacity:.9;-webkit-text-stroke:0;background:linear-gradient(90deg,#E23B4E 0 25%,#F6BD16 25% 50%,#8FBA3C 50% 75%,#3A92D0 75% 100%)}
 .hero-tagline{color:var(--mut);font-size:clamp(16px,1.5vw,18.5px);max-width:520px;margin:26px 0 32px}
@@ -3395,8 +3401,9 @@ section>.shell{position:relative;z-index:1}
   /* nav word-matrix: fully off */
   #hdrMatrix{display:none!important}
   /* hero brand colorway: static gradient fallback (letters are not split under reduced motion) */
-  .hero h1 .l1{background:linear-gradient(96deg,#FF5D71 0%,#F7B733 34%,#A3D45C 66%,#4FACF7 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .hero h1 .l2{-webkit-text-stroke-color:rgba(79,172,247,.8)}
+  .hero h1 .l1{color:#F3F8FF}
+  .hero h1 .l2{-webkit-text-stroke-color:rgba(244,249,255,.9)}
+  .hero h1::after{display:none}
   /* patrol bot: parks bottom-right, no flight */
   .bot-x{left:auto;top:auto;right:16px;bottom:16px;animation:none!important;transform:none!important}
   .bot-y,.bot-bob,.bot-face,.bot-eye,.bot-thrust,.bot-ring,.bot-ant{animation:none!important;transform:none!important}
@@ -3405,9 +3412,11 @@ section>.shell{position:relative;z-index:1}
    V8.1 — DEAD-SPACE FILL + DIRECTIVE SYSTEMS
    ============================================================ */
 /* ---- 20 / OPERATIONS GRID: robotic USA map finder ---- */
-.usmap{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:min(1920px,100%);opacity:.9;pointer-events:none}
+.usmap{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:min(1280px,94%);opacity:.6;pointer-events:none;
+  -webkit-mask-image:radial-gradient(74% 70% at 50% 50%,#000 52%,transparent 98%);
+  mask-image:radial-gradient(74% 70% at 50% 50%,#000 52%,transparent 98%)}
 .usmap svg{width:100%;height:auto;display:block}
-.usmap .udot{fill:rgba(110,152,226,.45)}
+.usmap .udot{fill:rgba(110,152,226,.26)}
 .usmap .uline{stroke:rgba(63,217,245,.42);stroke-width:1.2;fill:none;stroke-dasharray:5 7;animation:arcFlow 3.2s linear infinite}
 @keyframes arcFlow{to{stroke-dashoffset:-24}}
 .usmap .upin{fill:var(--cyan);transition:r .2s}
@@ -3415,7 +3424,7 @@ section>.shell{position:relative;z-index:1}
 @keyframes pinHalo{0%{r:4;opacity:.9}100%{r:17;opacity:0}}
 .usmap .uhq{fill:var(--amber)}
 .usmap .uhq-halo{stroke:rgba(242,178,76,.6)}
-.usmap .ulab{font-family:var(--fm);font-size:11px;letter-spacing:.12em;fill:#7f96bd;text-transform:uppercase}
+.usmap .ulab{font-family:var(--fm);font-size:11px;letter-spacing:.12em;fill:rgba(127,150,189,.55);text-transform:uppercase}
 .usmap g.city.lit .upin{fill:#fff}
 .usmap g.city.lit .ulab{fill:var(--cyan)}
 .usmap g.city.lit .upin-halo{stroke:rgba(63,217,245,.95);animation-duration:1.1s}
@@ -3442,9 +3451,6 @@ section>.shell{position:relative;z-index:1}
   -webkit-mask-image:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent);
   mask-image:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent)}
 .gl .g-ticks{left:44px}.gr .g-ticks{right:44px}
-.gutter-fx .gstream{position:absolute;top:8vh;bottom:8vh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;
-  font-family:var(--fm);font-size:10.5px;line-height:2.2;letter-spacing:.05em;color:rgba(63,217,245,.85);opacity:.16;white-space:pre;text-transform:uppercase}
-.gl .gstream{left:100px}.gr .gstream{right:100px;text-align:right}
 .gutter-fx .g-ring{position:absolute;width:150px;height:150px;border-radius:50%;border:1px dashed rgba(63,217,245,.20);animation:spin 30s linear infinite}
 .gutter-fx .g-ring::before{content:"";position:absolute;inset:22px;border-radius:50%;border:1px solid rgba(143,124,255,.18)}
 .gl .g-ring{left:48px;top:16vh}.gr .g-ring{right:48px;bottom:14vh;animation-direction:reverse}
@@ -3560,14 +3566,12 @@ section>.shell{position:relative;z-index:1}
 <div class="g gl">
 <span class="g-ticks"></span>
 <span class="g-ring"></span>
-<span class="gstream" id="gsL"></span>
 <span class="g-node" style="left:56px;top:34vh"></span>
 <span class="g-node" style="left:76px;top:64vh;animation-delay:1.2s"></span>
 </div>
 <div class="g gr">
 <span class="g-ticks"></span>
 <span class="g-ring"></span>
-<span class="gstream" id="gsR"></span>
 <span class="g-node" style="right:56px;top:26vh;animation-delay:.6s"></span>
 <span class="g-node" style="right:78px;top:58vh;animation-delay:1.8s"></span>
 </div>
@@ -5253,36 +5257,8 @@ document.querySelectorAll(".aiw,#workGrid .wk:first-child,.deploy-card").forEach
 var i=document.createElement("i");i.className="hud-c "+cls;i.setAttribute("aria-hidden","true");p.appendChild(i);
 });
 });
-/* ============ HERO BRANDMARK COLORWAY ============
-   Logo pinwheel hues (sampled from logo-mark.png, lightened for the dark bg):
-   red #FF5D71 → amber #F7B733 → green #A3D45C → blue #4FACF7.
-   Each letter span gets a mini-gradient from its ramp position to the next,
-   so the word reads as one continuous logo-colored sweep. */
-(function(){
-var l1=document.querySelector(".hero h1 .l1");
-if(!l1)return;
-var ramp=[[255,93,113],[247,183,51],[163,212,92],[79,172,247]];
-function at(t){
-var seg=Math.min(Math.floor(t*3),2),f=t*3-seg,a=ramp[seg],b=ramp[seg+1];
-return "rgb("+Math.round(a[0]+(b[0]-a[0])*f)+","+Math.round(a[1]+(b[1]-a[1])*f)+","+Math.round(a[2]+(b[2]-a[2])*f)+")";
-}
-var ws=l1.querySelectorAll(".w");
-if(!ws.length)return; /* reduced motion: CSS gradient fallback handles color */
-var n=ws.length;
-ws.forEach(function(sp,i){
-sp.style.backgroundImage="linear-gradient(96deg,"+at(i/n)+","+at((i+1)/n)+")";
-});
-/* DESIGNS: same ramp carried into the outline strokes, letter by letter */
-var l2=document.querySelector(".hero h1 .l2");
-if(l2){
-var ws2=l2.querySelectorAll(".w"),n2=ws2.length;
-ws2.forEach(function(sp,i){
-sp.style.webkitTextStroke="1.5px "+at(n2>1?i/(n2-1):0);
-sp.style.opacity="";
-});
-}
-document.querySelector(".hero h1").classList.add("brandink");
-})();
+/* HERO BRANDMARK: robotic white colorway is pure CSS now (white glyphs, RGB-split
+   edge lining, scanner sweep) — the pinwheel hues live on in the .l2::after chip. */
 /* ============ NAV WORD-MATRIX (canvas, behind nav content) ============ */
 var mtx=document.getElementById("hdrMatrix");
 if(mtx&&!reduce&&window.matchMedia("(min-width: 768px)").matches){
@@ -5345,7 +5321,7 @@ if(!inside(gx,gy))continue;
 var c=document.createElementNS(NS,"circle");
 c.setAttribute("class","udot");
 c.setAttribute("cx",gx+((gx/17)%2?4:0));c.setAttribute("cy",gy);
-c.setAttribute("r",1.7);
+c.setAttribute("r",1.15);
 frag.appendChild(c);
 }
 }
@@ -5427,10 +5403,7 @@ host.appendChild(s);
 setTimeout(function(){typeInto(s,i*4);},i*300);
 });
 }
-["gsL","gsR"].forEach(function(id,i){
-var el=document.getElementById(id);
-if(el&&el.getBoundingClientRect().height>0)setTimeout(function(){typeInto(el,7*i+2);},i*500);
-});
+/* gutter streams removed — typing readout is exclusive to the blog section (#blogStreams) */
 })();
 })();
 </script>
