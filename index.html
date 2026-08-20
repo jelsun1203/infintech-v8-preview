@@ -3460,24 +3460,28 @@ section>.shell{position:relative;z-index:1}
 /* HQ mini radar (replaces placeholder) */
 .hq .hq-map{flex:1;display:flex}
 .hq .hq-map .hq-radar{min-height:100%}
-.hq-radar{position:relative;width:100%;min-height:300px;overflow:hidden;border-radius:inherit;
-  background:radial-gradient(circle at 50% 46%,rgba(63,217,245,.10),rgba(8,13,24,.94) 62%),linear-gradient(160deg,#0b1322,#0e1930);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;
-  font-family:var(--fm);color:#7fdcf0;font-size:12px;letter-spacing:.14em;padding:26px}
-.hq-radar::before{content:"";position:absolute;left:50%;top:46%;width:340px;height:340px;margin:-170px 0 0 -170px;border-radius:50%;
-  background:repeating-radial-gradient(circle,transparent 0 39px,rgba(63,217,245,.16) 39px 40px);pointer-events:none}
-.hq-radar::after{content:"";position:absolute;left:50%;top:46%;width:340px;height:340px;margin:-170px 0 0 -170px;border-radius:50%;
-  background:conic-gradient(from 0deg,rgba(63,217,245,.34),transparent 26%);animation:spin 5.5s linear infinite;pointer-events:none;
-  mask:radial-gradient(circle,#000 0 52%,transparent 53%)}
-.hq-radar .rx{position:absolute;left:50%;top:46%;width:1px;height:340px;margin:-170px 0 0;background:rgba(63,217,245,.14)}
-.hq-radar .ry{position:absolute;left:50%;top:46%;width:340px;height:1px;margin:0 0 0 -170px;background:rgba(63,217,245,.14)}
-.hq-radar .hq-pin{position:relative;z-index:1;width:15px;height:15px;border-radius:50%;background:var(--amber);
-  box-shadow:0 0 14px rgba(242,178,76,.9),0 0 42px rgba(242,178,76,.4);margin-bottom:4px}
-.hq-radar .hq-pin::after{content:"";position:absolute;inset:-9px;border-radius:50%;border:1px solid rgba(242,178,76,.6);animation:hqPing 2.4s ease-out infinite}
-@keyframes hqPing{0%{transform:scale(.5);opacity:1}100%{transform:scale(1.8);opacity:0}}
-.hq-radar span{position:relative;z-index:1}
-.hq-radar .rc1{color:#cfe6f5}.hq-radar .rc2{color:#9fb2cc}
-.hq-radar .rc3{color:#41e0a8;font-size:10px;letter-spacing:.2em}
+.hq-radar{position:relative;width:100%;min-height:320px;overflow:hidden;border-radius:inherit;
+  background:linear-gradient(160deg,#0b1322,#0e1930);
+  display:flex;align-items:stretch;justify-content:center;padding:20px 12px 36px}
+.hq-radar .hqm{width:100%;height:auto;display:block}
+.hq-radar .hql{fill:rgba(19,29,48,.55);stroke:rgba(203,217,238,.42);stroke-width:1.8;stroke-linejoin:round}
+.hq-radar .hqring{fill:none;stroke:rgba(63,217,245,.14);stroke-width:1}
+.hq-radar .hqsweep{animation:spin 5.5s linear infinite;transform-origin:592px 478px;mix-blend-mode:screen}
+.hq-radar .hqpin{fill:var(--amber);stroke:rgba(9,14,26,.85);stroke-width:3;transition:fill .2s}
+.hq-radar .hqpin.red{fill:#E23B4E;animation:hqBlink 2.2s ease-in-out infinite}
+@keyframes hqBlink{0%,100%{opacity:1}50%{opacity:.55}}
+.hq-radar .hqhalo{fill:none;stroke:rgba(242,178,76,.5);stroke-width:1.6;animation:hqHalo 2.6s ease-out infinite}
+@keyframes hqHalo{0%{r:12;opacity:.95}100%{r:34;opacity:0}}
+.hq-radar .hqhalo.red{stroke:rgba(226,59,78,.65);animation:hqHaloR 2.2s ease-out infinite}
+@keyframes hqHaloR{0%{r:20;opacity:1}100%{r:52;opacity:0}}
+.hq-radar .hqstar{fill:#fff;font-size:19px;text-anchor:middle;font-family:var(--fd);font-weight:700}
+.hq-radar .hqlab{font-family:var(--fm);font-size:18px;letter-spacing:.12em;fill:#c9d5ea;text-transform:uppercase;text-anchor:middle}
+.hq-radar .hqlab.start{text-anchor:start}
+.hq-radar .hqlab.end{text-anchor:end}
+.hq-radar .hqlab.amber{fill:var(--amber)}
+.hq-radar g.city.lit .hqpin{fill:#fff}
+.hq-radar g.city.lit .hqlab{fill:var(--cyan)}
+.hq-radar .rc3{position:absolute;left:16px;bottom:11px;font-family:var(--fm);color:#41e0a8;font-size:10px;letter-spacing:.2em;animation:hqBlink 2.2s ease-in-out infinite}
 /* ---- 21 / DEPLOY CTA: game-grade hologram ---- */
 .deploy-card{overflow:hidden;isolation:isolate}
 .deploy-card::before,.deploy-card::after{border-color:rgba(63,217,245,.9);filter:drop-shadow(0 0 6px rgba(63,217,245,.8));animation:hudBlink 4s steps(1) infinite}
@@ -3551,7 +3555,7 @@ section>.shell{position:relative;z-index:1}
 .comms-status .csr .ok{color:var(--teal);font-family:var(--fm);font-size:11px;letter-spacing:.08em}
 /* ---- new-layer reduced motion ---- */
 @media(prefers-reduced-motion:reduce){
-  .usmap .uline,.usmap .upin-halo,.usmap .usweep,.hq-radar::after,.hq-radar .hq-pin::after,
+  .usmap .uline,.usmap .upin-halo,.usmap .usweep,.hq-radar .hqsweep,.hq-radar .hqhalo,.hq-radar .hqpin.red,.hq-radar .rc3,
   .deploy-lines,.deploy-cols,.deploy-tgt i,.ftr-holo *,.ftr-brand img,.ftr-col h4,.ftr-offices h4,.ftr-off::before,
   .stream .cur::after{animation:none!important}
   .stream{opacity:.1}
@@ -4820,7 +4824,31 @@ We design, develop, and rank brands that dominate their market.
 <div class="ops-grid">
 <div class="panel hud hq rv">
 <div class="hq-map">
-<div class="hq-radar"><span class="rx" aria-hidden="true"></span><span class="ry" aria-hidden="true"></span><span class="hq-pin" aria-hidden="true"></span><span class="rc1">HQ &mdash; 3436 MAGAZINE ST</span><span class="rc2">NEW ORLEANS, LA 70115</span><span class="rc3">&#9679; TARGET LOCKED &middot; 29.92&deg;N &middot; 90.08&deg;W</span></div>
+<div class="hq-radar">
+<svg class="hqm" fill="none" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1000 620" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<defs>
+<radialGradient id="hqSweepG" cx="592" cy="478" r="300" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="rgba(63,217,245,.45)"></stop>
+<stop offset="1" stop-color="rgba(63,217,245,0)"></stop>
+</radialGradient>
+</defs>
+<path class="hql" d="M5 38 L10 191 42 291 76 370 134 417 175 413 237 446 314 434 371 501 432 537 471 575 468 530 514 494 537 482 603 496 627 472 719 527 754 592 763 553 739 470 746 429 839 353 831 315 864 222 915 181 983 124 946 62 907 119 817 153 780 160 720 112 686 83 610 50 559 76 507 24 34 24 Z"></path>
+<circle class="hqring" cx="592" cy="478" r="100"></circle>
+<circle class="hqring" cx="592" cy="478" r="190"></circle>
+<circle class="hqring" cx="592" cy="478" r="280"></circle>
+<path class="hqsweep" d="M592 478 L592 198 A280 280 0 0 1 732 236 Z" fill="url(#hqSweepG)"></path>
+<g class="city" data-pin="seattle"><circle class="hqhalo" cx="45" cy="57" r="14"></circle><circle class="hqpin" cx="45" cy="57" r="10"></circle><text class="hqlab" x="56" y="97">Seattle</text></g>
+<g class="city" data-pin="sanfrancisco"><circle class="hqhalo" cx="44" cy="292" r="14"></circle><circle class="hqpin" cx="44" cy="292" r="10"></circle><text class="hqlab start" x="8" y="332">San Francisco</text></g>
+<g class="city" data-pin="newyork"><circle class="hqhalo" cx="864" cy="222" r="14"></circle><circle class="hqpin" cx="864" cy="222" r="10"></circle><text class="hqlab" x="864" y="262">New York</text></g>
+<g class="city" data-pin="atlanta"><circle class="hqhalo" cx="688" cy="388" r="14"></circle><circle class="hqpin" cx="688" cy="388" r="10"></circle><text class="hqlab" x="688" y="428">Atlanta</text></g>
+<g class="city" data-pin="dallas"><circle class="hqhalo" cx="478" cy="411" r="14"></circle><circle class="hqpin" cx="478" cy="411" r="10"></circle><text class="hqlab" x="478" y="384">Dallas</text></g>
+<g class="city" data-pin="austin"><circle class="hqhalo" cx="462" cy="470" r="14"></circle><circle class="hqpin" cx="462" cy="470" r="10"></circle><text class="hqlab end" x="440" y="477">Austin</text></g>
+<g class="city" data-pin="sanantonio"><circle class="hqhalo" cx="449" cy="491" r="14"></circle><circle class="hqpin" cx="449" cy="491" r="10"></circle><text class="hqlab end" x="452" y="534">San Antonio</text></g>
+<g class="city" data-pin="houston"><circle class="hqhalo" cx="502" cy="483" r="14"></circle><circle class="hqpin" cx="502" cy="483" r="10"></circle><text class="hqlab start" x="496" y="528">Houston</text></g>
+<g class="city hq" data-pin="hq"><circle class="hqhalo red" cx="592" cy="478" r="24"></circle><circle class="hqpin red" cx="592" cy="478" r="17"></circle><text class="hqstar" x="592" y="485">★</text><text class="hqlab amber start" x="624" y="518">New Orleans &mdash; HQ</text></g>
+</svg>
+<span class="rc3">&#9679; TARGET LOCKED &middot; 29.92&deg;N &middot; 90.08&deg;W</span>
+</div>
 <span class="hq-badge"><i class="bi bi-star-fill"></i> Headquarters</span>
 </div>
 <div class="hq-body">
@@ -5338,14 +5366,15 @@ path.setAttribute("d","M"+hq[0]+" "+hq[1]+" Q"+mx.toFixed(0)+" "+my.toFixed(0)+"
 path.style.animationDelay=(idx*.35)+"s";
 arcsG.appendChild(path);
 });
-/* city list hover → light matching pin */
+/* city list hover → light matching pin (background dot map + HQ-card outline map) */
 document.querySelectorAll(".city[data-city]").forEach(function(a){
-var pin=document.querySelector('.usmap g[data-pin="'+a.getAttribute("data-city")+'"]');
-if(!pin)return;
-a.addEventListener("mouseenter",function(){pin.classList.add("lit")});
-a.addEventListener("mouseleave",function(){pin.classList.remove("lit")});
-a.addEventListener("focus",function(){pin.classList.add("lit")});
-a.addEventListener("blur",function(){pin.classList.remove("lit")});
+var pins=document.querySelectorAll('.usmap g[data-pin="'+a.getAttribute("data-city")+'"],.hq-radar g[data-pin="'+a.getAttribute("data-city")+'"]');
+if(!pins.length)return;
+function set(on){pins.forEach(function(p){p.classList.toggle("lit",on)})}
+a.addEventListener("mouseenter",function(){set(true)});
+a.addEventListener("mouseleave",function(){set(false)});
+a.addEventListener("focus",function(){set(true)});
+a.addEventListener("blur",function(){set(false)});
 });
 })();
 /* ============ V8.1 — DATA STREAMS (full-bleed monitor typing + gutter HUD) ============ */
