@@ -4186,6 +4186,142 @@ section>.shell{position:relative;z-index:1}
   .press-cell:hover,.seal:hover,.net-cell:hover{transform:none}
   .bl:hover img{transform:none}
 }
+/* ============================================================
+   V9 — AI CHAPTER (07-A CITATION TEARDOWN · 07-B READINESS INSTRUMENT)
+   Namespaced .ai9-*. Reuses the existing token set only.
+   One motion idea for the whole chapter: the TRACE-DRAW —
+   stroke-dashoffset released in index order, 900ms,
+   cubic-bezier(.16,1,.3,1), 180ms apart. Nothing else enters.
+   ============================================================ */
+.ai9{background:linear-gradient(180deg,rgba(143,124,255,.045),transparent 34%)}
+.ai9b{background:linear-gradient(180deg,rgba(49,229,168,.035),transparent 30%)}
+/* second emphasis level for this chapter: the machine-read word,
+   set in the machine face. Used once per heading, never elsewhere. */
+.ai9-mkm{font-family:var(--fm);font-size:.68em;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--teal);border:1px solid rgba(49,229,168,.42);border-radius:6px;
+  padding:.12em .42em .18em;background:rgba(49,229,168,.07);white-space:nowrap;
+  box-shadow:0 0 22px rgba(49,229,168,.14) inset}
+/* ---- 07-A · teardown layout ---- */
+.ai9-teardown{position:relative;display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);
+  gap:clamp(28px,5vw,76px);align-items:start}
+.ai9-wire{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3;display:none;overflow:visible}
+@media(min-width:1024px){.ai9-wire{display:block}}
+.ai9-trace{fill:none;stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:var(--len,600);stroke-dashoffset:var(--len,600);
+  transition:stroke-dashoffset .9s cubic-bezier(.16,1,.3,1);transition-delay:var(--td,0ms)}
+.ai9-live .ai9-trace{stroke-dashoffset:0}
+.ai9-tdot{opacity:0;transition:opacity .35s ease;transition-delay:calc(var(--td,0ms) + 780ms)}
+.ai9-live .ai9-tdot{opacity:1}
+/* ---- specimen plate ---- */
+.ai9-spec{padding:0;overflow:hidden;position:relative;z-index:1}
+.ai9-spec-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  padding:13px 20px;border-bottom:1px solid var(--line2);background:rgba(9,14,25,.5);
+  font-family:var(--fm);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.ai9-spec-bar .ai9-eng{color:var(--violet);border:1px solid rgba(143,124,255,.32);border-radius:5px;padding:2px 8px;letter-spacing:.14em}
+.ai9-spec-bar .ai9-sep{flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent);min-width:14px}
+.ai9-spec-body{padding:clamp(22px,3vw,34px) clamp(20px,3vw,34px) clamp(24px,3vw,32px)}
+.ai9-q{font-family:var(--fm);font-size:12px;line-height:1.6;color:var(--mut);
+  border-left:2px solid var(--blue);padding-left:14px;margin-bottom:22px}
+.ai9-q b{color:var(--ink);font-weight:500}
+.ai9-answer{font-family:var(--fd);font-weight:500;letter-spacing:-.012em;
+  font-size:clamp(17px,1.85vw,25px);line-height:1.62;color:#C9D6EE}
+/* kept clause: the engine used it */
+.ai9-k{color:#DFF7EC;background:rgba(49,229,168,.10);border-radius:3px;padding:.02em .22em;
+  box-shadow:inset 0 -1.5px 0 rgba(49,229,168,.5);position:relative;white-space:normal}
+.ai9-k::after{content:attr(data-n);font-family:var(--fm);font-size:.42em;letter-spacing:.06em;
+  color:var(--teal);vertical-align:.85em;margin-left:.28em;opacity:.9}
+/* dropped clause: nothing to ground it in */
+.ai9-x{color:#6C7B99;text-decoration:line-through;text-decoration-color:rgba(255,162,46,.7);
+  text-decoration-thickness:1.5px}
+.ai9-legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:24px;padding-top:18px;border-top:1px solid var(--line2);
+  font-family:var(--fm);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.ai9-legend span{display:inline-flex;align-items:center;gap:7px}
+.ai9-legend i{width:9px;height:9px;border-radius:2px;display:inline-block;flex:none}
+.ai9-legend .lk{background:rgba(49,229,168,.55);box-shadow:0 0 9px rgba(49,229,168,.5)}
+.ai9-legend .lx{background:rgba(255,162,46,.5)}
+.ai9-tally{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.ai9-tally b{font-family:var(--fm);font-weight:400;font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--mut);border:1px solid var(--line2);border-radius:6px;padding:5px 10px;background:rgba(13,20,36,.5)}
+.ai9-tally b em{font-style:normal;color:var(--cyan)}
+/* ---- findings column ---- */
+.ai9-notes{display:flex;flex-direction:column;gap:13px;position:relative;z-index:1}
+.ai9-notes-head{font-family:var(--fm);font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--dim);display:flex;align-items:center;gap:12px;margin-bottom:3px}
+.ai9-notes-head::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.ai9-note{padding:16px 18px 15px;border-left:2px solid rgba(49,229,168,.45);
+  opacity:0;transform:translateX(10px);
+  transition:opacity .55s ease,transform .55s cubic-bezier(.16,1,.3,1);transition-delay:var(--td,0ms)}
+.ai9-live .ai9-note{opacity:1;transform:none}
+.ai9-note--drop{border-left-color:rgba(255,162,46,.5)}
+.ai9-note-n{font-family:var(--fm);font-size:9.5px;letter-spacing:.2em;color:var(--teal);display:block;margin-bottom:7px}
+.ai9-note--drop .ai9-note-n{color:var(--amber)}
+.ai9-note h3{font-family:var(--fd);font-size:15.5px;line-height:1.35;margin-bottom:6px}
+.ai9-note p{font-size:13.5px;line-height:1.6;color:var(--mut)}
+.ai9-note .ai9-asset{display:flex;align-items:center;gap:8px;margin-top:11px;padding-top:10px;
+  border-top:1px solid var(--line2);font-family:var(--fm);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--cyan)}
+.ai9-note--drop .ai9-asset{color:var(--amber)}
+.ai9-note .ai9-asset i{font-size:12px;flex:none}
+@media(max-width:1023px){.ai9-teardown{grid-template-columns:1fr}}
+/* ---- 07-B · readiness instrument ---- */
+.ai9-diag{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  gap:clamp(26px,4.5vw,60px);align-items:start}
+.ai9-inst{padding:clamp(22px,3vw,30px) clamp(20px,3vw,28px) 24px;text-align:center}
+@media(min-width:1024px){.ai9-inst{position:sticky;top:112px}}
+.ai9-dial{position:relative;width:min(258px,80%);margin:4px auto 0;aspect-ratio:1}
+.ai9-dial svg{width:100%;height:100%;display:block;overflow:visible}
+.ai9-arc-t{fill:none;stroke:rgba(140,170,230,.13);stroke-width:9;stroke-linecap:round}
+.ai9-arc-v{fill:none;stroke:url(#ai9dialG);stroke-width:9;stroke-linecap:round;
+  stroke-dasharray:368;stroke-dashoffset:368;transition:stroke-dashoffset .7s cubic-bezier(.16,1,.3,1)}
+.ai9-tick{stroke:rgba(140,170,230,.3);stroke-width:1.4;stroke-linecap:round;transition:stroke .35s ease}
+.ai9-tick.hit{stroke:var(--teal)}
+.ai9-read{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.ai9-score{font-family:var(--fd);font-weight:700;font-size:clamp(46px,7vw,62px);line-height:1;
+  letter-spacing:-.03em;color:var(--amber);transition:color .45s ease;font-variant-numeric:tabular-nums}
+.ai9-of{font-family:var(--fm);font-size:11px;letter-spacing:.24em;color:var(--dim)}
+.ai9-band-2 .ai9-score{color:var(--cyan)}
+.ai9-band-3 .ai9-score{color:var(--teal)}
+.ai9-verdict{font-family:var(--fd);font-size:17px;line-height:1.35;margin-top:18px;min-height:2.7em;
+  display:flex;align-items:center;justify-content:center}
+.ai9-honest{font-family:var(--fm);font-size:10px;letter-spacing:.1em;line-height:1.7;color:var(--dim);
+  margin-top:10px;padding-top:14px;border-top:1px solid var(--line2)}
+.ai9-inst .btn{margin-top:16px;width:100%}
+.ai9-reset{background:none;border:0;cursor:pointer;font-family:var(--fm);font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--dim);padding:12px 8px;margin-top:2px;min-height:44px}
+.ai9-reset:hover{color:var(--cyan)}
+/* checks */
+.ai9-checks{display:flex;flex-direction:column;gap:10px;list-style:none}
+.ai9-check{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;width:100%;text-align:left;
+  padding:15px 18px;min-height:64px;cursor:pointer;font:inherit;color:inherit;
+  background:linear-gradient(180deg,rgba(17,27,48,.88),rgba(8,13,23,.94));
+  backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:12px;
+  transition:border-color .25s ease,background .25s ease,transform .25s ease}
+.ai9-check:hover{border-color:rgba(63,217,245,.4);background:rgba(20,32,56,.94)}
+.ai9-box{width:22px;height:22px;margin-top:2px;border-radius:6px;border:1.5px solid rgba(140,170,230,.35);
+  display:flex;align-items:center;justify-content:center;flex:none;
+  transition:border-color .25s ease,background .25s ease}
+.ai9-box i{font-size:13px;color:#04121c;opacity:0;transform:scale(.5);
+  transition:opacity .22s ease,transform .22s cubic-bezier(.2,1.5,.4,1)}
+.ai9-check[aria-pressed="true"]{border-color:rgba(49,229,168,.42);background:rgba(18,40,37,.9)}
+.ai9-check[aria-pressed="true"] .ai9-box{background:var(--teal);border-color:var(--teal)}
+.ai9-check[aria-pressed="true"] .ai9-box i{opacity:1;transform:none}
+.ai9-check-n{font-family:var(--fm);font-size:9.5px;letter-spacing:.2em;color:var(--dim);display:block;margin-bottom:5px}
+.ai9-check[aria-pressed="true"] .ai9-check-n{color:var(--teal)}
+.ai9-check-q{font-family:var(--fd);font-weight:600;font-size:15.5px;line-height:1.42;display:block;color:var(--ink)}
+.ai9-fix{display:block;margin-top:8px;font-family:var(--fm);font-size:10.5px;line-height:1.65;letter-spacing:.04em;
+  color:var(--mut);transition:opacity .3s ease}
+.ai9-fix b{color:var(--cyan);font-weight:400;letter-spacing:.14em}
+.ai9-check[aria-pressed="true"] .ai9-fix{opacity:.32}
+@media(max-width:1023px){.ai9-diag{grid-template-columns:1fr}}
+@media(max-width:420px){.ai9-check{padding:14px 14px;gap:11px}.ai9-check-q{font-size:14.5px}}
+/* ---- chapter reduced-motion: everything lands, nothing moves ---- */
+@media(prefers-reduced-motion:reduce){
+  .ai9-trace{stroke-dashoffset:0!important;transition:none!important}
+  .ai9-tdot{opacity:1!important;transition:none!important}
+  .ai9-note{opacity:1!important;transform:none!important;transition:none!important}
+  .ai9-arc-v{transition:none!important}
+  .ai9-box i,.ai9-check{transition:none!important}
+}
 </style>
 </head>
 <body>
@@ -4984,6 +5120,157 @@ We design, develop, and rank brands that dominate their market.
 </div>
 </div>
 </div>
+</div>
+</div>
+</section>
+<!-- ==== 07-A / CITATION TEARDOWN (answer forensics) ==== -->
+<section class="mod ai9" id="ai-teardown">
+<div aria-hidden="true" class="fx">
+<span class="fxi big" data-par=".045" style="left:-2%;bottom:4%">TEARDOWN</span>
+<span class="fxi card edge fl1" style="top:20%;right:1.4%"><i class="bi bi-clipboard2-pulse-fill"></i>SPECIMEN · CAPTURED</span>
+<span class="fxi lbl edge" style="top:42%;left:2%;writing-mode:vertical-rl">ANSWER FORENSICS</span>
+<span class="fxi node" style="top:16%;left:5%"></span>
+<span class="fxi node" style="bottom:18%;left:8%;animation-delay:1.3s"></span>
+</div>
+<div class="shell">
+<div class="mod-head rv">
+<div class="tag"><span class="tix">07-A /</span> Answer Forensics · Citation Teardown</div>
+<h2 class="h2">Being <span class="mk">ranked</span> and being <span class="ai9-mkm">cited</span> are not the same job.</h2>
+<p class="sub">A ranking earns a link somebody might click. A citation puts your name inside the answer, where there is nothing left to click. Below is one answer about us, pulled apart clause by clause, with the receipt for every part the engine kept.</p>
+</div>
+<div class="ai9-teardown rv">
+<svg class="ai9-wire" id="ai9Wire" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"></svg>
+<div class="panel hud ai9-spec">
+<div class="ai9-spec-bar">
+<span class="ai9-eng"><i class="bi bi-stars"></i> Generative answer</span>
+<span>Specimen 001</span>
+<span class="ai9-sep"></span>
+<span>Teardown complete</span>
+</div>
+<div class="ai9-spec-body">
+<p class="ai9-q"><b>Prompt:</b> Who should a New Orleans business hire for SEO and web design?</p>
+<p class="ai9-answer">For New Orleans, Infintech Designs comes up often. <span class="ai9-k" data-n="01" data-anchor="01">It has worked out of the city since 2008, with 18+ years behind it</span>, and the team has <span class="ai9-k" data-n="02" data-anchor="02">built over 4,000 websites and optimized 750+ of them for search</span> across 8 states. <span class="ai9-x" data-anchor="drop">Passionate</span> and <span class="ai9-x">cutting-edge</span>, the agency is <span class="ai9-x">second to none</span>. Coverage in <span class="ai9-k" data-n="03" data-anchor="03">Entrepreneur, HuffPost and Inc.</span> supports the record, and it is led by <span class="ai9-k" data-n="04" data-anchor="04">founder and CEO Brian Hong</span>.</p>
+<div class="ai9-legend">
+<span><i class="lk"></i> Kept · grounded in a checkable fact</span>
+<span><i class="lx"></i> Dropped · nothing to check it against</span>
+</div>
+<div class="ai9-tally">
+<b><em>4</em> claims kept</b>
+<b><em>3</em> adjectives dropped</b>
+<b><em>3</em> source domains</b>
+<b>infintechdesigns.com · entrepreneur.com · inc.com</b>
+</div>
+</div>
+</div>
+<div class="ai9-notes">
+<div class="ai9-notes-head">Findings</div>
+<article class="panel ai9-note" data-note="01">
+<span class="ai9-note-n">FINDING 01</span>
+<h3>Facts that agree with themselves</h3>
+<p>Founded 2008. New Orleans. 18+ years. Those three go in the Organization schema, on the page, and on every profile that points back here, in the same words. A model will restate a fact it can find twice and skip one it can only find once.</p>
+<span class="ai9-asset"><i class="bi bi-diagram-3-fill"></i> Asset · Entity &amp; schema SEO</span>
+</article>
+<article class="panel ai9-note" data-note="02">
+<span class="ai9-note-n">FINDING 02</span>
+<h3>Numbers written once</h3>
+<p>4,000 sites built. 750 optimized. Published as text and structured data rather than baked into a graphic, and never rounded to a different figure on a different page. Two versions of one number is the fastest way to lose a citation.</p>
+<span class="ai9-asset"><i class="bi bi-quote"></i> Asset · AEO content engineering</span>
+</article>
+<article class="panel ai9-note" data-note="03">
+<span class="ai9-note-n">FINDING 03</span>
+<h3>Someone else said it</h3>
+<p>Entrepreneur, HuffPost, Inc. An engine weights what other domains say about you far above what your own homepage says. This clause survived because it did not come from us.</p>
+<span class="ai9-asset"><i class="bi bi-broadcast"></i> Asset · Digital PR &amp; citation building</span>
+</article>
+<article class="panel ai9-note" data-note="04">
+<span class="ai9-note-n">FINDING 04</span>
+<h3>A person to attribute</h3>
+<p>Answers prefer companies with a human attached. Publish the founder as a Person entity linked to the Organization and the engine has an author to name instead of a logo.</p>
+<span class="ai9-asset"><i class="bi bi-person-badge-fill"></i> Asset · Author &amp; E-E-A-T markup</span>
+</article>
+<article class="panel ai9-note ai9-note--drop" data-note="drop">
+<span class="ai9-note-n">DROPPED</span>
+<h3>What the engine threw away</h3>
+<p>Passionate. Cutting-edge. Second to none. Three phrases with nothing behind them to verify, so none of them reached the answer. Adjectives are the part of your website AI search cannot use.</p>
+<span class="ai9-asset"><i class="bi bi-eraser-fill"></i> Asset · Rewrite for retrieval</span>
+</article>
+</div>
+</div>
+</div>
+</section>
+<!-- ==== 07-B / AI READINESS INSTRUMENT ==== -->
+<section class="mod ai9b" id="ai-readiness">
+<div aria-hidden="true" class="fx">
+<span class="fxi big" data-par=".045" style="left:-3%;bottom:3%">READINESS</span>
+<span class="fxi card edge fl1" style="top:22%;left:1.4%"><i class="bi bi-speedometer2"></i>DIAGNOSTIC · 6 CHECKS</span>
+<span class="fxi lbl edge" style="top:44%;right:2%;writing-mode:vertical-rl">SELF-REPORT ARRAY</span>
+<span class="fxi node" style="top:14%;right:6%"></span>
+<span class="fxi node" style="bottom:20%;right:9%;animation-delay:.9s"></span>
+</div>
+<div class="shell">
+<div class="mod-head center rv">
+<div class="tag"><span class="tix">07-B /</span> Readiness Instrument · Score Your Own Site</div>
+<h2 class="h2">Six questions decide whether an engine can <span class="mk">quote you</span>.</h2>
+<p class="sub">Answer them about your own site. The dial reads what you tick. Nothing is sent anywhere.</p>
+</div>
+<div class="ai9-diag rv" id="ai9Diag">
+<div class="panel hud ai9-inst ai9-band-1" id="ai9Inst">
+<span class="chip chip--cy"><span class="dot"></span> AI Readiness · Live</span>
+<div class="ai9-dial">
+<svg viewBox="0 0 200 200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="ai9dialG" gradientUnits="userSpaceOnUse" x1="22" y1="172" x2="180" y2="42">
+<stop offset="0" stop-color="#FFA22E"/><stop offset=".5" stop-color="#3FD9F5"/><stop offset="1" stop-color="#31E5A8"/>
+</linearGradient></defs>
+<path class="ai9-arc-t" d="M44.85 155.15A78 78 0 1 1 155.15 155.15"/>
+<path class="ai9-arc-v" id="ai9Arc" d="M44.85 155.15A78 78 0 1 1 155.15 155.15"/>
+<g id="ai9Ticks">
+<line class="ai9-tick" x1="37.77" y1="162.23" x2="32.11" y2="167.89"/>
+<line class="ai9-tick" x1="12" y1="100" x2="4" y2="100"/>
+<line class="ai9-tick" x1="37.77" y1="37.77" x2="32.11" y2="32.11"/>
+<line class="ai9-tick" x1="100" y1="12" x2="100" y2="4"/>
+<line class="ai9-tick" x1="162.23" y1="37.77" x2="167.89" y2="32.11"/>
+<line class="ai9-tick" x1="188" y1="100" x2="196" y2="100"/>
+</g>
+</svg>
+<div class="ai9-read"><span class="ai9-score" id="ai9Score">0</span><span class="ai9-of">OF 6</span></div>
+</div>
+<p class="ai9-verdict" id="ai9Verdict" role="status" aria-live="polite">Answer the six. The dial reads what you tick.</p>
+<a class="btn btn-c" data-consult-open="" href="#consultModal"><i class="bi bi-clipboard2-check-fill"></i> Get the full AI visibility audit</a>
+<button class="ai9-reset" id="ai9Reset" type="button">Clear answers</button>
+<p class="ai9-honest">Self-report, not a scan. The real audit checks all six against live output from ChatGPT, AI&nbsp;Overviews, Perplexity, Gemini and Claude.</p>
+</div>
+<ul class="ai9-checks">
+<li><button class="ai9-check" type="button" aria-pressed="false">
+<span class="ai9-box"><i class="bi bi-check-lg"></i></span>
+<span><span class="ai9-check-n">CHECK 01</span><span class="ai9-check-q">Does each service page answer its own question in the first 40 words?</span>
+<span class="ai9-fix"><b>If not →</b> AEO rewrite. Lead with the answer, then earn it back with the detail.</span></span>
+</button></li>
+<li><button class="ai9-check" type="button" aria-pressed="false">
+<span class="ai9-box"><i class="bi bi-check-lg"></i></span>
+<span><span class="ai9-check-n">CHECK 02</span><span class="ai9-check-q">Do your name, address, founding year and service list read identically everywhere?</span>
+<span class="ai9-fix"><b>If not →</b> Entity cleanup across the site, Google Business Profile and every directory that quotes you.</span></span>
+</button></li>
+<li><button class="ai9-check" type="button" aria-pressed="false">
+<span class="ai9-box"><i class="bi bi-check-lg"></i></span>
+<span><span class="ai9-check-n">CHECK 03</span><span class="ai9-check-q">Is your Organization schema published and linked to a named person?</span>
+<span class="ai9-fix"><b>If not →</b> Schema build. Organization, Person, Service and FAQ, wired together rather than dropped in loose.</span></span>
+</button></li>
+<li><button class="ai9-check" type="button" aria-pressed="false">
+<span class="ai9-box"><i class="bi bi-check-lg"></i></span>
+<span><span class="ai9-check-n">CHECK 04</span><span class="ai9-check-q">Has anyone outside your company written about you in the last twelve months?</span>
+<span class="ai9-fix"><b>If not →</b> Digital PR. Earn the third-party mention, because your own claims about yourself carry the least weight.</span></span>
+</button></li>
+<li><button class="ai9-check" type="button" aria-pressed="false">
+<span class="ai9-box"><i class="bi bi-check-lg"></i></span>
+<span><span class="ai9-check-n">CHECK 05</span><span class="ai9-check-q">Are your reviews sitting somewhere a machine can actually read them?</span>
+<span class="ai9-fix"><b>If not →</b> Review surface. Proof moves out of screenshots into text and markup an engine can parse.</span></span>
+</button></li>
+<li><button class="ai9-check" type="button" aria-pressed="false">
+<span class="ai9-box"><i class="bi bi-check-lg"></i></span>
+<span><span class="ai9-check-n">CHECK 06</span><span class="ai9-check-q">Can an AI crawler reach your content without running JavaScript?</span>
+<span class="ai9-fix"><b>If not →</b> Access audit. robots.txt, llms.txt, server-rendered copy and the speed to survive the fetch.</span></span>
+</button></li>
+</ul>
 </div>
 </div>
 </section>
@@ -5845,7 +6132,7 @@ pUpd();
 var sysMap={
 top:"CORE INTERFACE ONLINE",next:"GUARANTEE PROTOCOL ARMED","slide-form":"PERFORMANCE DATA STREAMING",
 "featured-in":"PRESS SIGNALS VERIFIED","about-infintech":"COMMAND PROFILE LOADED",services:"SYSTEMS ARCHITECTURE ACTIVE",
-process:"DEPLOYMENT SEQUENCE READY","ai-seo":"AI SEARCH NETWORK ONLINE",awards:"CREDENTIALS VERIFIED",
+process:"DEPLOYMENT SEQUENCE READY","ai-seo":"AI SEARCH NETWORK ONLINE","ai-teardown":"ANSWER SPECIMEN LOADED","ai-readiness":"DIAGNOSTIC ARRAY CALIBRATED",awards:"CREDENTIALS VERIFIED",
 reasons:"RECOGNITION INDEX SYNCED",industries:"SECTOR MODULES LOADED",compare:"SYSTEM COMPARISON LIVE",
 "case-studies":"RESULTS DATABASE ACCESSING",brands:"CLIENT NETWORK STREAMING","our-work":"BUILD ARCHIVE DECRYPTED",
 testimonials:"FEEDBACK CHANNEL VERIFIED","why-us":"STRATEGIC ADVANTAGE MAPPED",faq:"KNOWLEDGE BASE INDEXED",
@@ -6146,6 +6433,144 @@ var g=document.createElement("span");g.className="svc-ghost "+ic.className;g.set
 ic.closest(".svc").appendChild(g);
 });
 })();
+})();
+</script>
+<script>
+/* ============================================================
+   V9 — AI CHAPTER behaviour (07-A teardown traces · 07-B dial)
+   Self-contained. No rAF loops, no scroll handlers, no canvas.
+   ============================================================ */
+(function(){
+"use strict";
+var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- 07-A · clause traces ---------- */
+var wire=document.getElementById("ai9Wire");
+if(wire){
+  var wrap=wire.parentNode,
+      spec=wrap.querySelector(".ai9-spec"),
+      live=false;
+
+  function build(){
+    if(!wire.clientWidth||window.innerWidth<1024){wire.innerHTML="";return}
+    var cr=wrap.getBoundingClientRect(),
+        sr=spec.getBoundingClientRect(),
+        notes=wrap.querySelectorAll(".ai9-note[data-note]"),
+        specR=sr.right-cr.left,
+        gap=Math.max(12,(notes.length?notes[0].getBoundingClientRect().left-cr.left:specR+40)-specR),
+        out="",i,n=notes.length;
+    wire.setAttribute("viewBox","0 0 "+cr.width+" "+cr.height);
+    wire.setAttribute("width",cr.width);
+    wire.setAttribute("height",cr.height);
+    for(i=0;i<n;i++){
+      var key=notes[i].getAttribute("data-note"),
+          src=wrap.querySelector('.ai9-spec [data-anchor="'+key+'"]');
+      if(!src)continue;
+      var rects=src.getClientRects();
+      if(!rects.length)continue;
+      var r=rects[rects.length-1],
+          nr=notes[i].getBoundingClientRect(),
+          x1=r.right-cr.left+3,
+          y1=r.top+r.height/2-cr.top,
+          x2=nr.left-cr.left-3,
+          y2=nr.top-cr.top+26,
+          gx=specR+gap*(0.24+i*0.11),
+          dir=y2>=y1?1:-1,
+          rr=Math.max(0,Math.min(8,Math.abs(y2-y1)/2,gx-x1-4,x2-gx-4)),
+          col=(key==="drop")?"rgba(255,162,46,.62)":"rgba(49,229,168,.55)",
+          d="M"+x1+" "+y1+" H"+(gx-rr)+" Q"+gx+" "+y1+" "+gx+" "+(y1+dir*rr)+
+            " V"+(y2-dir*rr)+" Q"+gx+" "+y2+" "+(gx+rr)+" "+y2+" H"+x2;
+      out+='<path class="ai9-trace" d="'+d+'" stroke="'+col+'" style="--td:'+(i*180)+'ms"/>'+
+           '<circle class="ai9-tdot" cx="'+x1+'" cy="'+y1+'" r="2.6" fill="'+col+'" style="--td:'+(i*180)+'ms"/>'+
+           '<circle class="ai9-tdot" cx="'+x2+'" cy="'+y2+'" r="2.6" fill="none" stroke="'+col+'" stroke-width="1.2" style="--td:'+(i*180)+'ms"/>';
+    }
+    wire.innerHTML=out;
+    /* prime dash length; if already revealed, land instantly instead of replaying */
+    Array.prototype.forEach.call(wire.querySelectorAll(".ai9-trace"),function(p){
+      var L=p.getTotalLength()||600;
+      p.style.setProperty("--len",L);
+      if(live){p.style.transition="none"}
+    });
+    if(live){
+      /* force style flush, then hand control back to CSS */
+      void wire.getBoundingClientRect();
+      requestAnimationFrame(function(){
+        Array.prototype.forEach.call(wire.querySelectorAll(".ai9-trace"),function(p){p.style.transition=""});
+      });
+    }
+  }
+
+  var pending=false;
+  function schedule(){
+    if(pending)return;pending=true;
+    requestAnimationFrame(function(){pending=false;build()});
+  }
+
+  build();
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(schedule);
+  window.addEventListener("resize",schedule,{passive:true});
+  if(window.ResizeObserver)new ResizeObserver(schedule).observe(wrap);
+
+  if(reduce){live=true;wrap.classList.add("ai9-live")}
+  else{
+    var ioT=new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        if(!en.isIntersecting)return;
+        ioT.disconnect();
+        live=true;
+        build();
+        wrap.classList.add("ai9-live");
+      });
+    },{threshold:.2});
+    ioT.observe(wrap);
+  }
+}
+
+/* ---------- 07-B · readiness dial ---------- */
+var inst=document.getElementById("ai9Inst");
+if(inst){
+  var arc=document.getElementById("ai9Arc"),
+      scoreEl=document.getElementById("ai9Score"),
+      verdictEl=document.getElementById("ai9Verdict"),
+      ticks=document.querySelectorAll("#ai9Ticks .ai9-tick"),
+      checks=document.querySelectorAll(".ai9-check"),
+      LEN=arc.getTotalLength()||367.6,
+      VERDICT=[
+        "Answer the six. The dial reads what you tick.",
+        "Barely legible to an answer engine.",
+        "Findable. Rarely quoted.",
+        "Findable. Rarely quoted.",
+        "Quotable, with gaps worth closing.",
+        "Close. One fix from being the cited answer.",
+        "Citable. Now defend the position."
+      ];
+  arc.style.strokeDasharray=LEN;
+  arc.style.strokeDashoffset=LEN;
+
+  function paint(){
+    var s=0,i;
+    for(i=0;i<checks.length;i++){if(checks[i].getAttribute("aria-pressed")==="true")s++}
+    arc.style.strokeDashoffset=LEN*(1-s/6);
+    scoreEl.textContent=s;
+    verdictEl.textContent=VERDICT[s];
+    inst.classList.remove("ai9-band-1","ai9-band-2","ai9-band-3");
+    inst.classList.add(s<=1?"ai9-band-1":(s<=4?"ai9-band-2":"ai9-band-3"));
+    for(i=0;i<ticks.length;i++){ticks[i].classList.toggle("hit",i<s)}
+  }
+
+  Array.prototype.forEach.call(checks,function(b){
+    b.addEventListener("click",function(){
+      b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");
+      paint();
+    });
+  });
+  var rst=document.getElementById("ai9Reset");
+  if(rst)rst.addEventListener("click",function(){
+    Array.prototype.forEach.call(checks,function(b){b.setAttribute("aria-pressed","false")});
+    paint();
+  });
+  paint();
+}
 })();
 </script>
 </body>
