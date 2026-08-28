@@ -2942,8 +2942,8 @@ body.nav-open{overflow:hidden}
 @media(max-width:640px){.mis-grid{grid-template-columns:1fr 1fr}}
 /* ============ 13 CLIENT NETWORK ============ */
 .net{overflow:hidden}
-.net-row{display:flex;gap:14px;width:max-content;margin-bottom:14px;animation:slide 94.5s linear infinite}
-.net-row--r{animation:slide 94.5s linear infinite reverse}
+.net-row{display:flex;gap:14px;width:max-content;margin-bottom:14px;animation:slide 94.5s linear infinite;animation-play-state:paused}
+.net-row--r{animation:slide 94.5s linear infinite reverse;animation-play-state:paused}
 .net:hover .net-row{animation-play-state:paused}
 @keyframes slide{to{transform:translateX(-50%)}}
 .net-cell{background:rgba(233,239,251,.93);border-radius:11px;width:170px;height:78px;flex:none;display:flex;align-items:center;justify-content:center;padding:14px 18px}
@@ -3744,7 +3744,7 @@ section>.shell{position:relative;z-index:1}
 .adv-mq{overflow:hidden;border:1px solid var(--line);border-radius:12px;background:rgba(9,14,26,.55);padding:9px 0;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.adv-track{display:flex;width:max-content;animation:slide 40.5s linear infinite}
+.adv-track{display:flex;width:max-content;animation:slide 40.5s linear infinite;animation-play-state:paused}
 .adv-mq:hover .adv-track{animation-play-state:paused}
 .adv-chip{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;font-family:var(--fm);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);border:1px solid var(--line2);border-radius:999px;padding:8px 15px;margin:0 5px}
 .adv-chip i{color:var(--amber);font-size:12px}
