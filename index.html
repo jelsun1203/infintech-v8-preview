@@ -3206,15 +3206,13 @@ section>.shell{position:relative;z-index:1}
 .center .sysact{margin-left:14px}
 @keyframes blink{50%{opacity:0}}
 /* headline word / letter reveal */
-.w{display:inline-block;opacity:0;transform:translateY(.5em);transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.2,1);transition-delay:var(--wd,0s)}
+.w{display:inline-block;opacity:0;transform:translateY(.16em);transition:opacity .3s ease,transform .3s ease-out;transition-delay:var(--wd,0s)}
 .in .w{opacity:1;transform:none}
 /* hero H1 only: staggered spring entrance + gentle idle drift (upgrades the letter reveal) */
 .hero h1 .w{transition:none}
-.hero.in h1 .w{animation:letterSpring .85s cubic-bezier(.22,.9,.32,1) var(--wd) both}
+.hero.in h1 .w{animation:letterSpring .42s ease-out var(--wd) both}
 @keyframes letterSpring{
-  0%{opacity:0;transform:translateY(.68em) scale(.88)}
-  55%{opacity:1;transform:translateY(-.09em) scale(1.045)}
-  78%{transform:translateY(.025em) scale(.996)}
+  0%{opacity:0;transform:translateY(.2em)}
   100%{opacity:1;transform:none}
 }
 @keyframes letterDrift{0%,100%{transform:translateY(0)}50%{transform:translateY(-.045em)}}
@@ -6183,13 +6181,13 @@ var frag=document.createDocumentFragment();
 if(perLetter){
 c.textContent.split("").forEach(function(ch){
 if(/\s/.test(ch)){frag.appendChild(document.createTextNode(ch));return}
-var sp=document.createElement("span");sp.className="w";sp.style.setProperty("--wd",(wi*45)+"ms");sp.textContent=ch;wi++;frag.appendChild(sp);
+var sp=document.createElement("span");sp.className="w";sp.style.setProperty("--wd",(wi*12)+"ms");sp.textContent=ch;wi++;frag.appendChild(sp);
 });
 }else{
 c.textContent.split(/(\s+)/).forEach(function(p){
 if(!p)return;
 if(/^\s+$/.test(p)){frag.appendChild(document.createTextNode(p));return}
-var sp=document.createElement("span");sp.className="w";sp.style.setProperty("--wd",(wi*70)+"ms");sp.textContent=p;wi++;frag.appendChild(sp);
+var sp=document.createElement("span");sp.className="w";sp.style.setProperty("--wd",(wi*20)+"ms");sp.textContent=p;wi++;frag.appendChild(sp);
 });
 }
 n.replaceChild(frag,c);
