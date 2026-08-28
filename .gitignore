@@ -1,1 +1,4 @@
 index.html.bak-pre-ai
+
+# local safety backups - never publish
+*.bak-*
